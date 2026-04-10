@@ -8,7 +8,41 @@ $(document).ready(function () {
   scrollToTop();
   pageScroll();
   wrapImageWithFancyBox();
+  renderMathIfEnabled();
 });
+
+function renderMathIfEnabled() {
+  var cfg = window.__TREE_MATH__;
+  if (!cfg || !cfg.enable || cfg.engine !== "katex") {
+    return;
+  }
+  if (typeof renderMathInElement !== "function") {
+    return;
+  }
+
+  var root = document.querySelector(cfg.element || "#article-content") || document.body;
+  var delimiters = cfg.delimiters || [
+    {left: "$$", right: "$$", display: true},
+    {left: "$", right: "$", display: false},
+    {left: "\\(", right: "\\)", display: false},
+    {left: "\\[", right: "\\]", display: true}
+  ];
+
+  // Avoid touching code blocks / preformatted sections.
+  var options = $.extend(true, {
+    delimiters: delimiters,
+    throwOnError: false,
+    strict: false,
+    ignoredTags: ["script", "noscript", "style", "textarea", "pre", "code", "option"],
+    ignoredClasses: ["katex", "no-math", "language-math"]
+  }, cfg.options || {});
+
+  try {
+    renderMathInElement(root, options);
+  } catch (e) {
+    // Best-effort: keep the page usable even if KaTeX fails.
+  }
+}
 
 // 页面滚动
 function pageScroll() {
@@ -178,6 +212,7 @@ function pjaxLoad() {
         showArticleIndex();
       }
       wrapImageWithFancyBox();
+      renderMathIfEnabled();
     }
   });
 }
