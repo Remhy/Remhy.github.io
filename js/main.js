@@ -21,6 +21,40 @@ function renderMathIfEnabled() {
   }
 
   var root = document.querySelector(cfg.element || "#article-content") || document.body;
+
+  // Hexo's markdown renderer may insert <br> inside $$...$$ blocks, which splits
+  // delimiters across text nodes; KaTeX auto-render can't match across nodes.
+  // Convert those <br> to "\n" and normalize adjacent text nodes.
+  try {
+    var brsAll = root.querySelectorAll("br");
+    var touched = new Set();
+    brsAll.forEach(function (br) {
+      var container = br.parentElement;
+      if (!container || touched.has(container)) {
+        return;
+      }
+      var text = container.textContent || "";
+      if (text.indexOf("$$") === -1) {
+        return;
+      }
+      var pairs = (text.match(/\$\$/g) || []).length;
+      if (pairs < 2) {
+        return;
+      }
+      var brs = container.querySelectorAll("br");
+      if (brs.length === 0) {
+        return;
+      }
+      brs.forEach(function (b) {
+        b.parentNode.replaceChild(document.createTextNode("\n"), b);
+      });
+      container.normalize();
+      touched.add(container);
+    });
+  } catch (e) {
+    // Ignore DOM normalization issues and attempt rendering anyway.
+  }
+
   var delimiters = cfg.delimiters || [
     {left: "$$", right: "$$", display: true},
     {left: "$", right: "$", display: false},
