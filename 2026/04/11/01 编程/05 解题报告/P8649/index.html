@@ -455,9 +455,9 @@
 <h3 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h3><p>&emsp;&emsp;第一行包含两个整数 $N$ 和 $K$ $(1 \le N,K \le 10^5)$。</p>
 <p>&emsp;&emsp;以下 $N$ 行每行包含一个整数 $A_i$ $(1 \le A_i \le 10^5)$。</p>
 <h3 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h3><p>&emsp;&emsp;输出一个整数，代表 $K$ 倍区间的数目。</p>
-<h3 id="输入输出样例-1"><a href="#输入输出样例-1" class="headerlink" title="输入输出样例 #1"></a>输入输出样例 #1</h3><h4 id="输入-1"><a href="#输入-1" class="headerlink" title="输入 #1"></a>输入 #1</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">5 2</span><br><span class="line">1  </span><br><span class="line">2  </span><br><span class="line">3  </span><br><span class="line">4  </span><br><span class="line">5  </span><br></pre></td></tr></table></figure>
+<h3 id="输入输出样例"><a href="#输入输出样例" class="headerlink" title="输入输出样例"></a>输入输出样例</h3><h4 id="输入"><a href="#输入" class="headerlink" title="输入"></a>输入</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">5 2</span><br><span class="line">1  </span><br><span class="line">2  </span><br><span class="line">3  </span><br><span class="line">4  </span><br><span class="line">5  </span><br></pre></td></tr></table></figure>
 
-<h4 id="输出-1"><a href="#输出-1" class="headerlink" title="输出 #1"></a>输出 #1</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">6</span><br></pre></td></tr></table></figure>
+<h4 id="输出"><a href="#输出" class="headerlink" title="输出"></a>输出</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">6</span><br></pre></td></tr></table></figure>
 
 <h3 id="说明-提示"><a href="#说明-提示" class="headerlink" title="说明&#x2F;提示"></a>说明&#x2F;提示</h3><p>&emsp;&emsp;时限 2 秒, 256M。第八届蓝桥杯。</p>
 <h3 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h3><p>&emsp;&emsp;前缀和最常见两种用法是快速求区间和以及抽象表示区间，本题便是抽象地表示区间。<br>&emsp;&emsp;不妨先假设区间 $[l,r]$ 为一个 $k$ 倍区间，那么这段区间的和 $S_r - S_{l - 1}$ 应满足条件：<br>$$<br>S_r - S_{l - 1} \equiv 0 \  (mod k)<br>$$<br>由同余的性质可得：<br>$$<br>S_r \equiv S_{l - 1} \  (mod k)<br>$$<br>也就是说，如果前缀和数组中的两个元素对 $k$ 取模的结果是相等的，即这两个元素在模 $k$ 意义下同余，那么它们表示出来的区间和是 $k$ 的整数倍。于是我们可以对每一个可能作为区间右端点的下标 $r \in [1,n]$ 去找他所有可能的左端点 $l \in [0, r-1]$，找出所有同余的左端点数量扫描计数即可。</p>
