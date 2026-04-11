@@ -9,7 +9,7 @@
 	
 	<title>
 	
-		前缀和&amp;差分 | 
+		Markdown语法 | 
 	 
 	Note_Blog
 	</title>
@@ -173,7 +173,7 @@
 									</a>
 									
 							<ul>
-								<li class="file">
+								<li class="file active">
 									<a href="/2026/04/11/01%20%E7%BC%96%E7%A8%8B/03%20Markdown&Latex/01%20Markdown%E8%AF%AD%E6%B3%95/">
                      
 										    Markdown语法
@@ -195,7 +195,7 @@
 									</a>
 									
 							<ul>
-								<li class="file active">
+								<li class="file">
 									<a href="/2026/04/09/01%20%E7%BC%96%E7%A8%8B/04%20%E7%AE%97%E6%B3%95&%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E5%89%8D%E7%BC%80%E5%92%8C&%E5%B7%AE%E5%88%86/">
                      
 										    前缀和&差分
@@ -308,7 +308,7 @@
 	<!-- 引入正文 -->
 	<div id="content" class="content">
 		<h1 id="article-title">
-	前缀和&差分
+	Markdown语法
 </h1>
 
 <!-- meta -->
@@ -316,7 +316,7 @@
 	
 
 	<span>Remh</span>
-	<span>2026-04-09 00:00:00</span>
+	<span>2026-04-11 00:00:00</span>
 
   <div id="article-categories">
     
@@ -325,18 +325,7 @@
           
               <span>
                   <i class="fa fa-folder" aria-hidden="true">
-                  <a href="/categories/编程/">编程</a>
-                  </i>
-                
-                  >
-                
-              </span>
-          
-      
-          
-              <span>
-                  <i class="fa fa-folder" aria-hidden="true">
-                  <a href="/categories/编程/算法-数据结构/">算法&数据结构</a>
+                  <a href="/categories/语法/">语法</a>
                   </i>
                 
               </span>
@@ -350,15 +339,7 @@
             
                 <span>
                     <i class="fa fa-tag" aria-hidden="true">
-                    <a href="/tags/前缀和/">前缀和</a>
-                    </i>
-                </span>
-            
-        
-            
-                <span>
-                    <i class="fa fa-tag" aria-hidden="true">
-                    <a href="/tags/差分/">差分</a>
+                    <a href="/tags/语法/">语法</a>
                     </i>
                 </span>
             
@@ -370,20 +351,24 @@
 
 <!-- content -->
 <div id="article-content">
-	<h3 id="前缀和"><a href="#前缀和" class="headerlink" title="前缀和"></a>前缀和</h3><p>&emsp;&emsp;分析这样一个案例，给出一个下标从 $1$ 开始的随机数组 :<br>$$a &#x3D; [5, -3, 8, 3, 4, -7],$$<br>需要求出数组中下标区间 $[l,r]$ 的和，我们很容易想到可以使用二重循环解决，即：</p>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="type">int</span> sum = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">for</span> (<span class="type">int</span> i = l; i &lt;= r; i ++ ) sum += a[i];</span><br></pre></td></tr></table></figure>
+	<h3 id="标题"><a href="#标题" class="headerlink" title="标题"></a>标题</h3><p>&emsp;&emsp;标题分为类 $Atx$ 和类 $Setext$ 形式。</p>
+<p>&emsp;&emsp;类 $Atx$ 形式使用 <code>#</code> 数量表示标题的阶数;</p>
+<p>&emsp;&emsp;在行首插入 $1$ 到 $6$ 个 <code>#</code>，对应到标题 $1$ 到 $6$ 阶，例如：</p>
+<figure class="highlight md"><table><tr><td class="code"><pre><span class="line"><span class="section"># 这是 H1</span></span><br><span class="line"><span class="section">## 这是 H2</span></span><br><span class="line"><span class="section">### 这是 H3</span></span><br><span class="line"><span class="section">#### 这是 H4</span></span><br><span class="line"><span class="section">##### 这是 H5   </span></span><br><span class="line"><span class="section">###### 这是 H6  </span></span><br></pre></td></tr></table></figure>
 
-<p>&emsp;&emsp;这样我们可以很容易的将区间和统计在 $sum$ 中，并且求和时间与区间长度正相关。</p>
-<p>&emsp;&emsp;继续增加情境，我们需要在 $1s$ 内解决所有问题，数组长度变为了 $n$，并且假设 $n$ 的数量级为 $10^5$，对于原问题我们仍能使用 $C++$ 在 $1s$ 的时间内求出一次区间和的查询，因为最坏的情况也只能是查询区间为 $[1,n]$，显然此时也只会遍历一次 $a$ 数组；</p>
-<p>&emsp;&emsp;但是如果我们的询问不止一次，而是 $m$ 次呢？并且 $m$ 与 $n$ 数量级相同，显然最坏的语句执行次数为 $n \times m$ 超出了 $1s$ 的限制；于是我们继续分析问题，不难发现，我们在进行 $for$ 循环时遍历的下标有较多重复，也就是说我们统计的信息大多是重复的，所以我们的关注点变为能不能一次统计完所有信息来规避每次重复的统计，理论是可行的。</p>
-<p>&emsp;&emsp;引入一个新数组 $S$，$S$ 数组下标从 $0$ 开始，并且 $S_0 &#x3D; 0$，$S_x &#x3D; \sum\limits_{i&#x3D;1}^x a_i$；即前缀和数组，对于区间 $[l,r]$ 的求和问题我们不难发现<br>$$<br>\begin{aligned}<br>S_r &amp;&#x3D; a_1+a_2+…+a_{l-1}+a_l+…+a_r \newline<br>&amp;&#x3D;S_{l-1}+a_l+…+a_r \newline<br>&amp;&#x3D;S_{l-1}+sum[l,r]<br>\end{aligned}<br>$$<br>移项得到<br>$$<br>sum[l,r] &#x3D; S_r-S_{l-1}<br>$$<br>&emsp;&emsp;因此我们只要获得 $S$ 数组，便可通过一次减法运算得到区间求和的结果，时间复杂度从 $O(n)$ 降低为了 $O(1)$，问题解决。<br>关于如何求 $S$ 数组，可以发现 $S_x &#x3D; S_{x-1}+a_x$，因此线性递推即可，代码如下：</p>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line">S[<span class="number">0</span>] = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i ++ ) S[i] = S[i - <span class="number">1</span>] + a[i];</span><br></pre></td></tr></table></figure>
+<p>&emsp;&emsp;类 $Setext$ 形式则是用底线的形式;</p>
+<p>&emsp;&emsp;利用 <code>=</code>（最高阶标题）和 <code>-</code>（第二阶标题），例如：</p>
+<figure class="highlight md"><table><tr><td class="code"><pre><span class="line"><span class="section">这是 H1</span></span><br><span class="line"><span class="section">=============</span></span><br><span class="line"></span><br><span class="line"><span class="section">这是 H2</span></span><br><span class="line"><span class="section">-------------</span></span><br></pre></td></tr></table></figure>
 
-<h3 id="前缀信息"><a href="#前缀信息" class="headerlink" title="前缀信息"></a>前缀信息</h3><p>&emsp;&emsp;了解了前缀和的思想之后，我们进一步思考前缀和的本质，不难想到，前缀和数组 $S$ 实质上是统计了 $1\sim x$ 的区间和，而在进行区间 $[l,r]$ 求和时，实质上是将 $1 \sim r$ 的区间和中将多余的 $1 \sim l-1$ 的区间和减去，即将不必要的前缀信息消除掉。</p>
-<p>&emsp;&emsp;进而思考，是不是只要能求出 $1 \sim x$ 的信息并集，并且能通过这个信息并集将多余部分消去，便可得到任意区间的信息并集。因此，区间异或和等操作也可以类比实现。</p>
-<p>&emsp;&emsp;发散思维，当然有前缀和，那么后缀和能不能做呢？当然能。并且前缀和仅仅表示前缀信息的并集，有时我们解决问题仅需要前缀信息的并集，解决问题时不要想太多。</p>
-<h3 id="区间和常见问题"><a href="#区间和常见问题" class="headerlink" title="区间和常见问题"></a>区间和常见问题</h3><p>&emsp;&emsp;前缀和将求区间和问题从循环转变为一次减法操作，同样的，区间和可以被前缀和数组中任意两数之差来表示，即前缀和数组可以抽象表示区间和，可用来解决寻找特殊区间并集的问题。</p>
+<p>&emsp;&emsp;任何数量的 &#x3D; 和 - 都可以有效果。</p>
+<h3 id="字体效果"><a href="#字体效果" class="headerlink" title="字体效果"></a>字体效果</h3><p>&emsp;&emsp;加粗倾斜删除表示与效果如下</p>
+<figure class="highlight md"><table><tr><td class="code"><pre><span class="line"><span class="strong">**粗体**</span></span><br><span class="line"></span><br><span class="line"><span class="strong">**<span class="emphasis">*加粗斜体*</span>**</span></span><br><span class="line"></span><br><span class="line"><span class="emphasis">*斜体*</span>或<span class="emphasis">_斜体_</span></span><br><span class="line"></span><br><span class="line">~~删除线~~</span><br></pre></td></tr></table></figure>
 
+<p><strong>粗体</strong></p>
+<p><em><strong>加粗斜体</strong></em></p>
+<p><em>斜体</em> 或 <em>斜体</em></p>
+<p><del>删除线</del></p>
+<h3 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h3>
 </div>
 
 <!-- post-guide -->
@@ -391,16 +376,11 @@
     <div class="post-guide">
         <div class="item left">
             
-              <a href="/2026/04/11/01%20%E7%BC%96%E7%A8%8B/05%20%E8%A7%A3%E9%A2%98%E6%8A%A5%E5%91%8A/B3612/">
-                  <i class="fa fa-angle-left" aria-hidden="true"></i>
-                  B3612
-              </a>
-            
         </div>
         <div class="item right">
             
-              <a href="/2026/04/09/03%20%E8%AE%A1%E7%AE%97%E6%9C%BA/%E5%AD%98%E5%82%A8%E5%99%A8/">
-                存储器
+              <a href="/2026/04/11/01%20%E7%BC%96%E7%A8%8B/05%20%E8%A7%A3%E9%A2%98%E6%8A%A5%E5%91%8A/B3612/">
+                B3612
                 <i class="fa fa-angle-right" aria-hidden="true"></i>
               </a>
             
