@@ -173,7 +173,7 @@
 									</a>
 									
 							<ul>
-								<li class="file active">
+								<li class="file">
 									<a href="/2026/04/09/01%20%E7%BC%96%E7%A8%8B/04%20%E7%AE%97%E6%B3%95&%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E5%89%8D%E7%BC%80%E5%92%8C&%E5%B7%AE%E5%88%86/">
                      
 										    前缀和&差分
@@ -195,7 +195,7 @@
 									</a>
 									
 							<ul>
-								<li class="file">
+								<li class="file active">
 									<a href="/2026/04/11/01%20%E7%BC%96%E7%A8%8B/05%20%E8%A7%A3%E9%A2%98%E6%8A%A5%E5%91%8A/B3612/">
                      
 										    前缀和&差分
@@ -294,7 +294,7 @@
 	
 
 	<span>Remh</span>
-	<span>2026-04-09 00:00:00</span>
+	<span>2026-04-11 00:00:00</span>
 
   <div id="article-categories">
     
@@ -303,7 +303,7 @@
           
               <span>
                   <i class="fa fa-folder" aria-hidden="true">
-                  <a href="/categories/编程/">编程</a>
+                  <a href="/categories/ACM结题报告/">ACM结题报告</a>
                   </i>
                 
                   >
@@ -314,7 +314,7 @@
           
               <span>
                   <i class="fa fa-folder" aria-hidden="true">
-                  <a href="/categories/编程/算法-数据结构/">算法&数据结构</a>
+                  <a href="/categories/ACM结题报告/算法-数据结构/">算法&数据结构</a>
                   </i>
                 
               </span>
@@ -333,14 +333,6 @@
                 </span>
             
         
-            
-                <span>
-                    <i class="fa fa-tag" aria-hidden="true">
-                    <a href="/tags/差分/">差分</a>
-                    </i>
-                </span>
-            
-        
     
   </div>
 
@@ -348,20 +340,21 @@
 
 <!-- content -->
 <div id="article-content">
-	<h3 id="前缀和"><a href="#前缀和" class="headerlink" title="前缀和"></a>前缀和</h3><p>&emsp;&emsp;分析这样一个案例，给出一个下标从 $1$ 开始的随机数组 :<br>$$a &#x3D; [5, -3, 8, 3, 4, -7],$$<br>需要求出数组中下标区间 $[l,r]$ 的和，我们很容易想到可以使用二重循环解决，即：</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> sum = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">for</span> (<span class="type">int</span> i = l; i &lt;= r; i ++ ) sum += a[i];</span><br></pre></td></tr></table></figure>
+	<h2 id="B3612-【深进1-例1】求区间和"><a href="#B3612-【深进1-例1】求区间和" class="headerlink" title="B3612 【深进1.例1】求区间和"></a>B3612 【深进1.例1】求区间和</h2><h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><p>&emsp;&emsp;给定 $n$ 个正整数组成的数列 $a_1, a_2, \cdots, a_n$ 和 $m$ 个区间 $[l_i,r_i]$，分别求这 $m$ 个区间的区间和。</p>
+<h3 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h3><p>&emsp;&emsp;第一行包含一个正整数 $n$，表示序列的长度。</p>
+<p>&emsp;&emsp;第二行包含 $n$ 个正整数 $a_1,a_2, \cdots ,a_n$。</p>
+<p>&emsp;&emsp;第三行包含一个正整数 $m$，表示区间的数量。</p>
+<p>&emsp;&emsp;接下来 $m$ 行，每行包含两个正整数 $l_i,r_i$，满足 $1\le l_i\le r_i\le n$。</p>
+<h3 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h3><p>&emsp;&emsp;共 $m$ 行，其中第 $i$ 行包含一个正整数，表示第 $i$ 组答案的询问。</p>
+<h3 id="输入输出样例-1"><a href="#输入输出样例-1" class="headerlink" title="输入输出样例 #1"></a>输入输出样例 #1</h3><h4 id="输入-1"><a href="#输入-1" class="headerlink" title="输入 #1"></a>输入 #1</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">4</span><br><span class="line">4 3 2 1</span><br><span class="line">2</span><br><span class="line">1 4</span><br><span class="line">2 3</span><br></pre></td></tr></table></figure>
 
-<p>&emsp;&emsp;这样我们可以很容易的将区间和统计在 $sum$ 中，并且求和时间与区间长度正相关。</p>
-<p>&emsp;&emsp;继续增加情境，我们需要在 $1s$ 内解决所有问题，数组长度变为了 $n$，并且假设 $n$ 的数量级为 $10^5$，对于原问题我们仍能使用 $C++$ 在 $1s$ 的时间内求出一次区间和的查询，因为最坏的情况也只能是查询区间为 $[1,n]$，显然此时也只会遍历一次 $a$ 数组；</p>
-<p>&emsp;&emsp;但是如果我们的询问不止一次，而是 $m$ 次呢？并且 $m$ 与 $n$ 数量级相同，显然最坏的语句执行次数为 $n \times m$ 超出了 $1s$ 的限制；于是我们继续分析问题，不难发现，我们在进行 $for$ 循环时遍历的下标有较多重复，也就是说我们统计的信息大多是重复的，所以我们的关注点变为能不能一次统计完所有信息来规避每次重复的统计，理论是可行的。</p>
-<p>&emsp;&emsp;引入一个新数组 $S$，$S$ 数组下标从 $0$ 开始，并且 $S_0 &#x3D; 0$，$S_x &#x3D; \sum\limits_{i&#x3D;1}^x a_i$；即前缀和数组，对于区间 $[l,r]$ 的求和问题我们不难发现<br>$$<br>\begin{aligned}<br>S_r &amp;&#x3D; a_1+a_2+…+a_{l-1}+a_l+…+a_r \newline<br>&amp;&#x3D;S_{l-1}+a_l+…+a_r \newline<br>&amp;&#x3D;S_{l-1}+sum[l,r]<br>\end{aligned}<br>$$<br>移项得到<br>$$<br>sum[l,r] &#x3D; S_r-S_{l-1}<br>$$<br>&emsp;&emsp;因此我们只要获得 $S$ 数组，便可通过一次减法运算得到区间求和的结果，时间复杂度从 $O(n)$ 降低为了 $O(1)$，问题解决。<br>关于如何求 $S$ 数组，可以发现 $S_x &#x3D; S_{x-1}+a_x$，因此线性递推即可，代码如下：</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">S[<span class="number">0</span>] = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i ++ ) S[i] = S[i - <span class="number">1</span>] + a[i];</span><br></pre></td></tr></table></figure>
+<h4 id="输出-1"><a href="#输出-1" class="headerlink" title="输出 #1"></a>输出 #1</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">10</span><br><span class="line">5</span><br></pre></td></tr></table></figure>
 
-<h3 id="前缀信息"><a href="#前缀信息" class="headerlink" title="前缀信息"></a>前缀信息</h3><p>&emsp;&emsp;了解了前缀和的思想之后，我们进一步思考前缀和的本质，不难想到，前缀和数组 $S$ 实质上是统计了 $1\sim x$ 的区间和，而在进行区间 $[l,r]$ 求和时，实质上是将 $1 \sim r$ 的区间和中将多余的 $1 \sim l-1$ 的区间和减去，即将不必要的前缀信息消除掉。</p>
-<p>&emsp;&emsp;进而思考，是不是只要能求出 $1 \sim x$ 的信息并集，并且能通过这个信息并集将多余部分消去，便可得到任意区间的信息并集。因此，区间异或和等操作也可以类比实现。</p>
-<p>&emsp;&emsp;发散思维，当然有前缀和，那么后缀和能不能做呢？当然能。并且前缀和仅仅表示前缀信息的并集，有时我们解决问题仅需要前缀信息的并集，解决问题时不要想太多。</p>
-<h3 id="区间和常见问题"><a href="#区间和常见问题" class="headerlink" title="区间和常见问题"></a>区间和常见问题</h3><p>&emsp;&emsp;前缀和将求区间和问题从循环转变为一次减法操作，同样的，区间和可以被前缀和数组中任意两数之差来表示，即前缀和数组可以抽象表示区间和，可用来解决寻找特殊区间并集的问题。</p>
-
+<h3 id="说明-提示"><a href="#说明-提示" class="headerlink" title="说明&#x2F;提示"></a>说明&#x2F;提示</h3><h4 id="样例解释"><a href="#样例解释" class="headerlink" title="样例解释"></a>样例解释</h4><p>&emsp;&emsp;第 $1$ 到第 $4$ 个数加起来和为 $10$。第 $2$ 个数到第 $3$ 个数加起来和为 $5$。</p>
+<h4 id="数据范围"><a href="#数据范围" class="headerlink" title="数据范围"></a>数据范围</h4><p>&emsp;&emsp;对于 $50 %$ 的数据：$n,m\le 1000$；</p>
+<p>&emsp;&emsp;对于 $100 %$ 的数据：$1 \le n, m\le 10^5$，$1 \le a_i\le 10^4$。</p>
+<h3 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h3><p>&emsp;&emsp;前缀和模板题，详解与公式见<a target="_blank" rel="noopener" href="https://remhy.github.io/2026/04/09/01%20%E7%BC%96%E7%A8%8B/04%20%E7%AE%97%E6%B3%95&%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E5%89%8D%E7%BC%80%E5%92%8C&%E5%B7%AE%E5%88%86/">前缀和与差分</a>，对照思路实现即可。</p>
+<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N = <span class="number">100010</span>;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> n, m;</span><br><span class="line"><span class="type">int</span> a[N], s[N];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    std::cin &gt;&gt; n;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i ++ ) std::cin &gt;&gt; a[i];</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i ++ ) s[i] = s[i - <span class="number">1</span>] + a[i];</span><br><span class="line">    std::cin &gt;&gt; m;</span><br><span class="line">    <span class="keyword">while</span> (m -- )&#123;</span><br><span class="line">        <span class="type">int</span> l, r;</span><br><span class="line">        std::cin &gt;&gt; l &gt;&gt; r;</span><br><span class="line">        std::cout &lt;&lt; s[r] - s[l - <span class="number">1</span>] &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">    &#125; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </div>
 
 <!-- post-guide -->
@@ -369,16 +362,11 @@
     <div class="post-guide">
         <div class="item left">
             
-              <a href="/2026/04/09/03%20%E8%AE%A1%E7%AE%97%E6%9C%BA/%E5%AD%98%E5%82%A8%E5%99%A8/">
-                  <i class="fa fa-angle-left" aria-hidden="true"></i>
-                  存储器
-              </a>
-            
         </div>
         <div class="item right">
             
-              <a href="/2026/04/08/02%20%E6%95%B0%E5%AD%A6/01%20%E6%9E%81%E9%99%90/%E6%9E%81%E9%99%90/">
-                极限
+              <a href="/2026/04/09/03%20%E8%AE%A1%E7%AE%97%E6%9C%BA/%E5%AD%98%E5%82%A8%E5%99%A8/">
+                存储器
                 <i class="fa fa-angle-right" aria-hidden="true"></i>
               </a>
             
