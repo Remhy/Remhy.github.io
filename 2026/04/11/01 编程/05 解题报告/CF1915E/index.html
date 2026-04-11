@@ -9,7 +9,7 @@
 	
 	<title>
 	
-		前缀和&amp;差分 | 
+		CF1915E | 
 	 
 	Note_Blog
 	</title>
@@ -195,7 +195,7 @@
 									</a>
 									
 							<ul>
-								<li class="file active">
+								<li class="file">
 									<a href="/2026/04/09/01%20%E7%BC%96%E7%A8%8B/04%20%E7%AE%97%E6%B3%95&%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E5%89%8D%E7%BC%80%E5%92%8C&%E5%B7%AE%E5%88%86/">
                      
 										    前缀和&差分
@@ -228,7 +228,7 @@
 							</ul>
 			
 							<ul>
-								<li class="file">
+								<li class="file active">
 									<a href="/2026/04/11/01%20%E7%BC%96%E7%A8%8B/05%20%E8%A7%A3%E9%A2%98%E6%8A%A5%E5%91%8A/CF1915E/">
                      
 										    CF1915E
@@ -341,7 +341,7 @@
 	<!-- 引入正文 -->
 	<div id="content" class="content">
 		<h1 id="article-title">
-	前缀和&差分
+	CF1915E
 </h1>
 
 <!-- meta -->
@@ -349,7 +349,7 @@
 	
 
 	<span>Remh</span>
-	<span>2026-04-09 00:00:00</span>
+	<span>2026-04-11 00:00:00</span>
 
   <div id="article-categories">
     
@@ -358,7 +358,7 @@
           
               <span>
                   <i class="fa fa-folder" aria-hidden="true">
-                  <a href="/categories/编程/">编程</a>
+                  <a href="/categories/ACM结题报告/">ACM结题报告</a>
                   </i>
                 
                   >
@@ -369,7 +369,18 @@
           
               <span>
                   <i class="fa fa-folder" aria-hidden="true">
-                  <a href="/categories/编程/算法-数据结构/">算法&数据结构</a>
+                  <a href="/categories/ACM结题报告/算法-数据结构/">算法&数据结构</a>
+                  </i>
+                
+                  >
+                
+              </span>
+          
+      
+          
+              <span>
+                  <i class="fa fa-folder" aria-hidden="true">
+                  <a href="/categories/ACM结题报告/算法-数据结构/洛谷/">洛谷</a>
                   </i>
                 
               </span>
@@ -388,14 +399,6 @@
                 </span>
             
         
-            
-                <span>
-                    <i class="fa fa-tag" aria-hidden="true">
-                    <a href="/tags/差分/">差分</a>
-                    </i>
-                </span>
-            
-        
     
   </div>
 
@@ -403,20 +406,24 @@
 
 <!-- content -->
 <div id="article-content">
-	<h3 id="前缀和"><a href="#前缀和" class="headerlink" title="前缀和"></a>前缀和</h3><p>&emsp;&emsp;分析这样一个案例，给出一个下标从 $1$ 开始的随机数组 :<br>$$a &#x3D; [5, -3, 8, 3, 4, -7],$$<br>需要求出数组中下标区间 $[l,r]$ 的和，我们很容易想到可以使用二重循环解决，即：</p>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="type">int</span> sum = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">for</span> (<span class="type">int</span> i = l; i &lt;= r; i ++ ) sum += a[i];</span><br></pre></td></tr></table></figure>
+	<h2 id="E-Romantic-Glasses"><a href="#E-Romantic-Glasses" class="headerlink" title="E.Romantic Glasses"></a>E.Romantic Glasses</h2><h3 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h3><p>&emsp;&emsp;Iulia has $n$ glasses arranged in a line. The $i$-th glass has $a_i$ units of juice in it. Iulia drinks only from odd-numbered glasses, while her date drinks only from even-numbered glasses.</p>
+<p>&emsp;&emsp;To impress her date, Iulia wants to find a contiguous subarray of these glasses such that both Iulia and her date will have the same amount of juice in total if only the glasses in this subarray are considered. Please help her to do that.</p>
+<p>&emsp;&emsp;More formally, find out if there exists two indices $l$, $r$ such that $1 \leq l \leq r \leq n$, and $a_l + a_{l + 2} + a_{l + 4} + \dots + a_{r} &#x3D; a_{l + 1} + a_{l + 3} + \dots + a_{r-1}$ if $l$ and $r$ have the same parity and $a_l + a_{l + 2} + a_{l + 4} + \dots + a_{r - 1} &#x3D; a_{l + 1} + a_{l + 3} + \dots + a_{r}$ otherwise.</p>
+<h3 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h3><p>&emsp;&emsp;The first line contains a single integer $t$ ($1 \leq t \leq 10^4$) — the number of test cases.</p>
+<p>&emsp;&emsp;The first line of each test case contains a single integer $n$ ($1 \leq n \leq 2 \cdot 10^5$) — the total number of glasses.</p>
+<p>&emsp;&emsp;The second line of each test case contains $n$ integers $a_1, \ldots, a_n$ ($1 \leq a_i \leq 10^9$) — the amount of juice in each glass.</p>
+<p>&emsp;&emsp;The sum of $n$ over all test cases does not exceed $2 \cdot 10^5$.</p>
+<h3 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h3><p>&emsp;&emsp;For each test case, output “YES” if there exists a subarray satisfying the condition, and “NO” otherwise.</p>
+<p>&emsp;&emsp;You can output the answer in any case (for example, the strings “yEs”, “yes”, “Yes” and “YES” will be recognized as a positive answer).</p>
+<h3 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h3><h4 id="Input-1"><a href="#Input-1" class="headerlink" title="Input"></a>Input</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">6</span><br><span class="line">3</span><br><span class="line">1 3 2</span><br><span class="line">6</span><br><span class="line">1 1 1 1 1 1</span><br><span class="line">10</span><br><span class="line">1 6 9 8 55 3 14 2 7 2</span><br><span class="line">8</span><br><span class="line">1 2 11 4 1 5 1 2</span><br><span class="line">6</span><br><span class="line">2 6 1 5 7 8</span><br><span class="line">9</span><br><span class="line">2 5 10 4 4 9 6 7 8</span><br></pre></td></tr></table></figure>
 
-<p>&emsp;&emsp;这样我们可以很容易的将区间和统计在 $sum$ 中，并且求和时间与区间长度正相关。</p>
-<p>&emsp;&emsp;继续增加情境，我们需要在 $1s$ 内解决所有问题，数组长度变为了 $n$，并且假设 $n$ 的数量级为 $10^5$，对于原问题我们仍能使用 $C++$ 在 $1s$ 的时间内求出一次区间和的查询，因为最坏的情况也只能是查询区间为 $[1,n]$，显然此时也只会遍历一次 $a$ 数组；</p>
-<p>&emsp;&emsp;但是如果我们的询问不止一次，而是 $m$ 次呢？并且 $m$ 与 $n$ 数量级相同，显然最坏的语句执行次数为 $n \times m$ 超出了 $1s$ 的限制；于是我们继续分析问题，不难发现，我们在进行 $for$ 循环时遍历的下标有较多重复，也就是说我们统计的信息大多是重复的，所以我们的关注点变为能不能一次统计完所有信息来规避每次重复的统计，理论是可行的。</p>
-<p>&emsp;&emsp;引入一个新数组 $S$，$S$ 数组下标从 $0$ 开始，并且 $S_0 &#x3D; 0$，$S_x &#x3D; \sum\limits_{i&#x3D;1}^x a_i$；即前缀和数组，对于区间 $[l,r]$ 的求和问题我们不难发现<br>$$<br>\begin{aligned}<br>S_r &amp;&#x3D; a_1+a_2+…+a_{l-1}+a_l+…+a_r \newline<br>&amp;&#x3D;S_{l-1}+a_l+…+a_r \newline<br>&amp;&#x3D;S_{l-1}+sum[l,r]<br>\end{aligned}<br>$$<br>移项得到<br>$$<br>sum[l,r] &#x3D; S_r-S_{l-1}<br>$$<br>&emsp;&emsp;因此我们只要获得 $S$ 数组，便可通过一次减法运算得到区间求和的结果，时间复杂度从 $O(n)$ 降低为了 $O(1)$，问题解决。<br>关于如何求 $S$ 数组，可以发现 $S_x &#x3D; S_{x-1}+a_x$，因此线性递推即可，代码如下：</p>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line">S[<span class="number">0</span>] = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i ++ ) S[i] = S[i - <span class="number">1</span>] + a[i];</span><br></pre></td></tr></table></figure>
+<h4 id="Output-1"><a href="#Output-1" class="headerlink" title="Output"></a>Output</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">YES</span><br><span class="line">YES</span><br><span class="line">NO</span><br><span class="line">YES</span><br><span class="line">NO</span><br><span class="line">YES</span><br></pre></td></tr></table></figure>
 
-<h3 id="前缀信息"><a href="#前缀信息" class="headerlink" title="前缀信息"></a>前缀信息</h3><p>&emsp;&emsp;了解了前缀和的思想之后，我们进一步思考前缀和的本质，不难想到，前缀和数组 $S$ 实质上是统计了 $1\sim x$ 的区间和，而在进行区间 $[l,r]$ 求和时，实质上是将 $1 \sim r$ 的区间和中将多余的 $1 \sim l-1$ 的区间和减去，即将不必要的前缀信息消除掉。</p>
-<p>&emsp;&emsp;进而思考，是不是只要能求出 $1 \sim x$ 的信息并集，并且能通过这个信息并集将多余部分消去，便可得到任意区间的信息并集。因此，区间异或和等操作也可以类比实现。</p>
-<p>&emsp;&emsp;发散思维，当然有前缀和，那么后缀和能不能做呢？当然能。并且前缀和仅仅表示前缀信息的并集，有时我们解决问题仅需要前缀信息的并集，解决问题时不要想太多。</p>
-<h3 id="区间和常见问题"><a href="#区间和常见问题" class="headerlink" title="区间和常见问题"></a>区间和常见问题</h3><p>&emsp;&emsp;前缀和将求区间和问题从循环转变为一次减法操作，同样的，区间和可以被前缀和数组中任意两数之差来表示，即前缀和数组可以抽象表示区间和，可用来解决寻找特殊区间并集的问题。</p>
-
+<h3 id="Note"><a href="#Note" class="headerlink" title="Note"></a>Note</h3><p>&emsp;&emsp;In the first test case, Iulia can pick $l&#x3D;1$ and $r&#x3D;3$. Then she drinks $a_1+a_3&#x3D;1+2&#x3D;3$ units and her date drinks $a_2&#x3D;3$ units of juice.</p>
+<p>&emsp;&emsp;In the second test case, Iulia can pick $l&#x3D;2$ and $r&#x3D;5$. Then she drinks $a_3+a_5&#x3D;1+1&#x3D;2$ units and her date drinks $a_2+a_4&#x3D;1+1&#x3D;2$ units of juice.</p>
+<p>&emsp;&emsp;In the third test case no such contiguous subarray works.</p>
+<p>&emsp;&emsp;In the fourth test case, Iulia can pick $l&#x3D;2$ and $r&#x3D;8$. Then she drinks $a_3+a_5+a_7&#x3D;11+1+1&#x3D;13$ units and her date drinks $a_2+a_4+a_6+a_8&#x3D;2+4+5+2&#x3D;13$ units of juice.</p>
+<h3 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h3><h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;set&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="type">long</span> <span class="type">long</span> ll;</span><br><span class="line"></span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N = <span class="number">200010</span>;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> n;</span><br><span class="line">ll a[N], s[<span class="number">2</span>][N];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">solve</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>, &amp;n);</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i ++ ) <span class="built_in">scanf</span>(<span class="string">&quot;%lld&quot;</span>, &amp;a[i]);</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i ++ )&#123;</span><br><span class="line">        s[i &amp; <span class="number">1</span>][i] = s[i &amp; <span class="number">1</span>][i - <span class="number">1</span>] + a[i];</span><br><span class="line">        s[(i &amp; <span class="number">1</span>) ^ <span class="number">1</span>][i] = s[(i &amp; <span class="number">1</span>) ^ <span class="number">1</span>][i - <span class="number">1</span>];</span><br><span class="line">    &#125;</span><br><span class="line">    set&lt;ll&gt; st;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt;= n; i ++ )&#123;</span><br><span class="line">        <span class="keyword">if</span> (st.<span class="built_in">count</span>(s[<span class="number">0</span>][i] - s[<span class="number">1</span>][i]))&#123;</span><br><span class="line">            <span class="built_in">puts</span>(<span class="string">&quot;YES&quot;</span>);</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        st.<span class="built_in">insert</span>(s[<span class="number">0</span>][i] - s[<span class="number">1</span>][i]);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">puts</span>(<span class="string">&quot;NO&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="type">int</span> _;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>, &amp;_);</span><br><span class="line">    <span class="keyword">while</span> (_ -- ) <span class="built_in">solve</span>();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </div>
 
 <!-- post-guide -->
@@ -424,16 +431,16 @@
     <div class="post-guide">
         <div class="item left">
             
-              <a href="/2026/04/11/01%20%E7%BC%96%E7%A8%8B/05%20%E8%A7%A3%E9%A2%98%E6%8A%A5%E5%91%8A/CF1915E/">
+              <a href="/2026/04/11/01%20%E7%BC%96%E7%A8%8B/05%20%E8%A7%A3%E9%A2%98%E6%8A%A5%E5%91%8A/P10569/">
                   <i class="fa fa-angle-left" aria-hidden="true"></i>
-                  CF1915E
+                  P10569
               </a>
             
         </div>
         <div class="item right">
             
-              <a href="/2026/04/09/03%20%E8%AE%A1%E7%AE%97%E6%9C%BA/%E5%AD%98%E5%82%A8%E5%99%A8/">
-                存储器
+              <a href="/2026/04/09/01%20%E7%BC%96%E7%A8%8B/04%20%E7%AE%97%E6%B3%95&%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E5%89%8D%E7%BC%80%E5%92%8C&%E5%B7%AE%E5%88%86/">
+                前缀和&差分
                 <i class="fa fa-angle-right" aria-hidden="true"></i>
               </a>
             
