@@ -240,6 +240,28 @@
 			
 							<ul>
 								<li class="file">
+									<a href="/2026/04/12/01%20%E7%BC%96%E7%A8%8B/05%20%E8%A7%A3%E9%A2%98%E6%8A%A5%E5%91%8A/CF1968G1/">
+                     
+										    CF1968G1
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2026/04/12/01%20%E7%BC%96%E7%A8%8B/05%20%E8%A7%A3%E9%A2%98%E6%8A%A5%E5%91%8A/CF1968G2/">
+                     
+										    CF1968G2
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
 									<a href="/2026/04/11/01%20%E7%BC%96%E7%A8%8B/05%20%E8%A7%A3%E9%A2%98%E6%8A%A5%E5%91%8A/P10569/">
                      
 										    P10569
@@ -436,7 +458,7 @@
 
 <!-- content -->
 <div id="article-content">
-	<h3 id="前缀和"><a href="#前缀和" class="headerlink" title="前缀和"></a>前缀和</h3><p>&emsp;&emsp;分析这样一个案例，给出一个下标从 $1$ 开始的随机数组 :<br>$$a &#x3D; [5, -3, 8, 3, 4, -7],$$<br>需要求出数组中下标区间 $[l,r]$ 的和，我们很容易想到可以使用二重循环解决，即：</p>
+	<h3 id="前缀和"><a href="#前缀和" class="headerlink" title="前缀和"></a>前缀和</h3><p>&emsp;&emsp;分析这样一个案例，给出一个下标从 $1$ 开始的随机数组 :<br>$$a &#x3D; [5, -3, 8, 3, 4, -7],$$<br>需要求出数组中下标区间 $[l,r]$ 的和，我们很容易想到可以使用循环解决，即：</p>
 <figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="type">int</span> sum = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">for</span> (<span class="type">int</span> i = l; i &lt;= r; i ++ ) sum += a[i];</span><br></pre></td></tr></table></figure>
 
 <p>&emsp;&emsp;这样我们可以很容易的将区间和统计在 $sum$ 中，并且求和时间与区间长度正相关。</p>
