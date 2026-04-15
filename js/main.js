@@ -7,9 +7,66 @@ $(document).ready(function () {
   switchTreeOrIndex();
   scrollToTop();
   pageScroll();
+  fixArticleImagePaths();
   wrapImageWithFancyBox();
   renderMathIfEnabled();
 });
+
+function fixArticleImagePaths() {
+  var root = document.getElementById("article-content");
+  if (!root) {
+    return;
+  }
+
+  // When Hexo/marked turns relative URLs into root-absolute paths ("/foo/bar.png"),
+  // post-asset images can 404 because the actual file lives under the current post URL.
+  // If the first path segment matches the current page's last segment, rewrite it.
+  var pathname = window.location.pathname || "/";
+  var pageDir = pathname.endsWith("/") ? pathname : pathname.substring(0, pathname.lastIndexOf("/") + 1);
+  var trimmed = pageDir.endsWith("/") ? pageDir.slice(0, -1) : pageDir;
+  var lastSeg = trimmed.substring(trimmed.lastIndexOf("/") + 1);
+  try {
+    lastSeg = decodeURIComponent(lastSeg);
+  } catch (e) {
+    // keep raw
+  }
+
+  var imgs = root.querySelectorAll("img");
+  imgs.forEach(function (img) {
+    var src = img.getAttribute("src") || "";
+    if (!src || src.startsWith("data:") || src.startsWith("http://") || src.startsWith("https://") || src.startsWith("//")) {
+      return;
+    }
+    if (!src.startsWith("/")) {
+      return;
+    }
+    var parts = src.split("/").filter(Boolean);
+    if (parts.length < 2) {
+      return;
+    }
+    // Shared static assets should not be rewritten.
+    if (parts[0] === "pictures" || parts[0] === "css" || parts[0] === "js" || parts[0] === "lib") {
+      return;
+    }
+    var first = parts[0];
+    try {
+      first = decodeURIComponent(first);
+    } catch (e) {
+      // keep raw
+    }
+    if (first !== lastSeg) {
+      return;
+    }
+
+    var rest = parts.slice(1).join("/");
+    img.setAttribute("src", pageDir + rest);
+
+    var parent = img.parentElement;
+    if (parent && parent.tagName === "A") {
+      parent.setAttribute("href", pageDir + rest);
+    }
+  });
+}
 
 function renderMathIfEnabled() {
   var cfg = window.__TREE_MATH__;
@@ -246,6 +303,7 @@ function pjaxLoad() {
         showArticleIndex();
       }
       wrapImageWithFancyBox();
+      fixArticleImagePaths();
       renderMathIfEnabled();
     }
   });
@@ -404,9 +462,10 @@ function scrollOff() {
  * Wrap images with fancybox support.
  */
 function wrapImageWithFancyBox() {
-  $('img').not('#header img').each(function () {
+  // Only enhance post/article images. Avoid touching icons/logos in sidebar/header.
+  $('#article-content img').each(function () {
     var $image = $(this);
-    var imageCaption = $image.attr('alt');
+    var imageCaption = $image.attr('alt') || $image.attr('title');
     var $imageWrapLink = $image.parent('a');
 
     if ($imageWrapLink.length < 1) {
@@ -421,6 +480,15 @@ function wrapImageWithFancyBox() {
     $imageWrapLink.attr('data-fancybox', 'images');
     if (imageCaption) {
       $imageWrapLink.attr('data-caption', imageCaption);
+    }
+
+    // Wrap with <figure> and show a centered caption on page.
+    if ($imageWrapLink.closest('figure.article-image').length < 1) {
+      $imageWrapLink.wrap('<figure class="article-image"></figure>');
+    }
+    var $figure = $imageWrapLink.closest('figure.article-image');
+    if (imageCaption && $figure.find('figcaption').length < 1) {
+      $figure.append('<figcaption>' + $('<div/>').text(imageCaption).html() + '</figcaption>');
     }
 
   });

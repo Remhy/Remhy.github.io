@@ -317,6 +317,23 @@ a {
 	max-width: 100%;
 	height: auto;
 }
+
+/* Center images and show a visible caption (from alt/title). */
+#article-content figure.article-image {
+	margin: 16px auto;
+	text-align: center;
+}
+#article-content figure.article-image img {
+	display: block;
+	margin: 0 auto;
+}
+#article-content figure.article-image figcaption {
+	margin-top: 8px;
+	font-size: 14px;
+	color: #6a737d;
+	line-height: 1.4;
+	text-align: center;
+}
 #article-content pre {
 	font-size: 14px;
 	margin: 20px 0 15px;
