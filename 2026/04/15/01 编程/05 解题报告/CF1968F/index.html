@@ -9,7 +9,7 @@
 	
 	<title>
 	
-		P10569 | 
+		CF1968F | 
 	 
 	Note_Blog
 	</title>
@@ -239,7 +239,7 @@
 							</ul>
 			
 							<ul>
-								<li class="file">
+								<li class="file active">
 									<a href="/2026/04/15/01%20%E7%BC%96%E7%A8%8B/05%20%E8%A7%A3%E9%A2%98%E6%8A%A5%E5%91%8A/CF1968F/">
                      
 										    CF1968F
@@ -272,7 +272,7 @@
 							</ul>
 			
 							<ul>
-								<li class="file active">
+								<li class="file">
 									<a href="/2026/04/11/01%20%E7%BC%96%E7%A8%8B/05%20%E8%A7%A3%E9%A2%98%E6%8A%A5%E5%91%8A/P10569/">
                      
 										    P10569
@@ -407,7 +407,7 @@
 	<!-- 引入正文 -->
 	<div id="content" class="content">
 		<h1 id="article-title">
-	P10569
+	CF1968F
 </h1>
 
 <!-- meta -->
@@ -415,7 +415,7 @@
 	
 
 	<span>Remh</span>
-	<span>2026-04-11 00:00:00</span>
+	<span>2026-04-15 00:00:00</span>
 
   <div id="article-categories">
     
@@ -446,7 +446,7 @@
           
               <span>
                   <i class="fa fa-folder" aria-hidden="true">
-                  <a href="/categories/ACM解题报告/算法-数据结构/洛谷/">洛谷</a>
+                  <a href="/categories/ACM解题报告/算法-数据结构/Codeforces/">Codeforces</a>
                   </i>
                 
               </span>
@@ -468,7 +468,15 @@
             
                 <span>
                     <i class="fa fa-tag" aria-hidden="true">
-                    <a href="/tags/贪心/">贪心</a>
+                    <a href="/tags/二分/">二分</a>
+                    </i>
+                </span>
+            
+        
+            
+                <span>
+                    <i class="fa fa-tag" aria-hidden="true">
+                    <a href="/tags/异或/">异或</a>
                     </i>
                 </span>
             
@@ -480,70 +488,35 @@
 
 <!-- content -->
 <div id="article-content">
-	<h2 id="「Daily-OI-Round-4」Snow"><a href="#「Daily-OI-Round-4」Snow" class="headerlink" title="「Daily OI Round 4」Snow"></a>「Daily OI Round 4」Snow</h2><h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><p>&emsp;&emsp;下雪了，小 Y 堆了 $n$ 个雪柱排成一排，调皮的小 X 打算推倒这 $n$ 个雪柱，他想在最少的时间内推倒所有雪柱，于是他请你来为他出谋划策。</p>
-<p>&emsp;&emsp;小 Y 堆的每个雪柱高 $a_i$ 单位，推倒一个雪柱的时间为该雪柱的高度。小 X 只能从这一排雪柱的两端推雪柱 *，次数不限，小 X 移动的时间可以忽略不计。这样就可以使一个雪柱倒向其他雪柱，从而击倒另一个雪柱（击倒的时间忽略不计），然后发生连锁反应，更加节省时间 **。</p>
-<p>&emsp;&emsp;设初始的势能为当前手动推倒的雪柱 $k$ 的高度 $p&#x3D;a_k$，则此轮连锁反应中第 $i$ 个雪柱倒向第 $j$ 个雪柱时：</p>
+	<h2 id="Equal-XOR-Segments"><a href="#Equal-XOR-Segments" class="headerlink" title="Equal XOR Segments"></a>Equal XOR Segments</h2><h3 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h3><p>&emsp;&emsp;Let us call an array $x_1,\dots,x_m$ interesting if it is possible to divide the array into $k \gt 1$ parts so that <a target="_blank" rel="noopener" href="http://tiny.cc/xor_wiki_eng">bitwise XOR</a> of values from each part are equal.</p>
+<p>&emsp;&emsp;More formally, you must split array $x$ into $k$ consecutive segments, each element of $x$ must belong to <strong>exactly</strong> $1$ segment. Let $y_1,\dots,y_k$ be the XOR of elements from each part respectively. Then $y_1&#x3D;y_2&#x3D;\dots&#x3D;y_k$ must be fulfilled.</p>
+<p>&emsp;&emsp;For example, if $x &#x3D; [1, 1, 2, 3, 0]$, you can split it as follows: $[\color{blue}1], [\color{green}1], [\color{red}2, \color{red}3, \color{red}0]$. Indeed $\color{blue}1&#x3D;\color{green}1&#x3D;\color{red}2 \oplus \color{red}3\oplus \color{red}0$.</p>
+<p>&emsp;&emsp;You are given an array $a_1,\dots,a_n$. Your task is to answer $q$ queries:</p>
 <ul>
-<li>若 $p\ge a_j$，则使第 $j$ 个雪柱也被击倒，并令 $p \gets a_j$。</li>
-<li>若 $p&lt; a_j$，则第 $j$ 个雪柱的高度减少（不被击倒），终止整个连锁反应，令 $a_j \gets a_j-p$。</li>
+<li>For fixed $l$, $r$, determine whether the subarray $a_l,a_{l+1},\dots,a_r$ is interesting.</li>
 </ul>
-<p>&emsp;&emsp;请你求出推倒所有雪柱的最短时间。</p>
-<p>&emsp;&emsp;*：每一次要么从左边推最左边的雪柱，要么从右边推最右边的雪柱。</p>
-<p>&emsp;&emsp;**：雪柱的倒塌方向取决于推雪柱的方向，如果从左边推，雪柱就会向右依次倒塌（第 $i$ 个雪柱倒塌向第 $i+1$ 个雪柱），反之同理。</p>
-<h3 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h3><p>&emsp;&emsp;<strong>本题有多组测试数据。</strong></p>
-<p>&emsp;&emsp;第一行一个整数 $T$，表示数据组数。</p>
-<p>&emsp;&emsp;对于每组数据：</p>
-<p>&emsp;&emsp;第一行一个整数 $n$，表示雪柱的数量。</p>
-<p>&emsp;&emsp;第二行 $n$ 个整数，分别表示每个雪柱的高度。</p>
-<h3 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h3><p>&emsp;&emsp;对于每组数据：输出一行一个整数，表示推倒所有雪柱的最短时间。</p>
-<h3 id="输入输出样例"><a href="#输入输出样例" class="headerlink" title="输入输出样例"></a>输入输出样例</h3><h4 id="输入"><a href="#输入" class="headerlink" title="输入"></a>输入</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">3</span><br><span class="line">5</span><br><span class="line">2 3 1 4 5</span><br><span class="line">6 </span><br><span class="line">6 6 6 6 6 6</span><br><span class="line">6</span><br><span class="line">1 1 4 5 1 4</span><br></pre></td></tr></table></figure>
+<h3 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h3><p>&emsp;&emsp;The first line contains a single integer $t$ ($1\le t\le 10^4$) — the number of test cases.</p>
+<p>&emsp;&emsp;The first line of each test case contains two integers $n$ and $q$ ($2 \le n \le 2 \cdot 10^5$, $1 \le q \le 2 \cdot 10^5$) — the number of elements in the array and the number of queries respectively.</p>
+<p>&emsp;&emsp;The next line contains $n$ integers $a_1,\dots,a_n$ ($0 \le a_i \lt 2^{30}$) — elements of the array.</p>
+<p>&emsp;&emsp;Each of the next $q$ lines contains two integers $l$ and $r$ ($1 \le l \lt r \le n$) describing the query.</p>
+<p>&emsp;&emsp;It is guaranteed that the sum of $n$ over all testcases does not exceed $2 \cdot 10^5$.</p>
+<p>&emsp;&emsp;It is guaranteed that the sum of $q$ over all testcases does not exceed $2 \cdot 10^5$.</p>
+<h3 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h3><p>&emsp;&emsp;For each query, output “YES” if the subarray is interesting and “NO” otherwise.</p>
+<p>&emsp;&emsp;You can output “Yes” and “No” in any case (for example, the strings “yES”, “yes”, and “Yes” will be recognized as correct answers).</p>
+<h3 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h3><h4 id="Input-1"><a href="#Input-1" class="headerlink" title="Input"></a>Input</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">4</span><br><span class="line">5 5</span><br><span class="line">1 1 2 3 0</span><br><span class="line">1 5</span><br><span class="line">2 4</span><br><span class="line">3 5</span><br><span class="line">1 3</span><br><span class="line">3 4</span><br><span class="line">5 5</span><br><span class="line">1 2 3 4 5</span><br><span class="line">1 5</span><br><span class="line">2 4</span><br><span class="line">3 5</span><br><span class="line">1 3</span><br><span class="line">2 3</span><br><span class="line">7 4</span><br><span class="line">12 9 10 9 10 11 9</span><br><span class="line">1 5</span><br><span class="line">1 7</span><br><span class="line">2 6</span><br><span class="line">2 7</span><br><span class="line">11 4</span><br><span class="line">0 0 1 0 0 1 0 1 1 0 1</span><br><span class="line">1 2</span><br><span class="line">2 5</span><br><span class="line">6 9</span><br><span class="line">7 11</span><br></pre></td></tr></table></figure>
 
-<h4 id="输出"><a href="#输出" class="headerlink" title="输出"></a>输出</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">7</span><br><span class="line">6</span><br><span class="line">8</span><br></pre></td></tr></table></figure>
+<h4 id="Output-1"><a href="#Output-1" class="headerlink" title="Output"></a>Output</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">YES</span><br><span class="line">YES</span><br><span class="line">NO</span><br><span class="line">NO</span><br><span class="line">NO</span><br><span class="line"></span><br><span class="line">YES</span><br><span class="line">NO</span><br><span class="line">NO</span><br><span class="line">YES</span><br><span class="line">NO</span><br><span class="line"></span><br><span class="line">NO</span><br><span class="line">NO</span><br><span class="line">NO</span><br><span class="line">NO</span><br><span class="line"></span><br><span class="line">YES</span><br><span class="line">NO</span><br><span class="line">YES</span><br><span class="line">YES</span><br></pre></td></tr></table></figure>
 
-<h4 id="样例解释"><a href="#样例解释" class="headerlink" title="样例解释"></a>样例解释</h4><ul>
-<li><strong>对于第一组数据：</strong></li>
-</ul>
-<p>&emsp;&emsp;第一次从左边推，耗费 $2$ 点时间，使得 $5$ 个雪柱 的高度分别变为：$0,1,1,4,5$。<br>&emsp;&emsp;第二次从右边推，耗费 $5$ 点时间，使得所有雪柱都被击倒。<br>&emsp;&emsp;共耗费 $7$ 点时间。</p>
-<ul>
-<li><strong>对于第二组数据：</strong></li>
-</ul>
-<p>&emsp;&emsp;从左边或者右边都可以一次性推完，共耗费 $6$ 点时间。</p>
-<ul>
-<li><strong>对于第三组数据：</strong></li>
-</ul>
-<p>&emsp;&emsp;第一次从右边推，耗费 $4$ 点时间，使得 $6$ 个雪柱的高度分别变为：$1,1,4,4,0,0$。<br>&emsp;&emsp;第二次从右边推，耗费 $4$ 点时间，使得所有雪柱都被击倒。<br>&emsp;&emsp;共耗费 $8$ 点时间。</p>
-<h4 id="数据范围"><a href="#数据范围" class="headerlink" title="数据范围"></a>数据范围</h4><p><strong>本题采用捆绑测试。</strong></p>
-<table>
-<thead>
-<tr>
-<th align="center">$\text{Subtask}$</th>
-<th align="center">分值</th>
-<th align="center">$n \le$</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">$0$</td>
-<td align="center">$10$</td>
-<td align="center">$20$</td>
-</tr>
-<tr>
-<td align="center">$1$</td>
-<td align="center">$15$</td>
-<td align="center">$100$</td>
-</tr>
-<tr>
-<td align="center">$2$</td>
-<td align="center">$25$</td>
-<td align="center">$1000$</td>
-</tr>
-<tr>
-<td align="center">$3$</td>
-<td align="center">$50$</td>
-<td align="center">$10^5$</td>
-</tr>
-</tbody></table>
-<p>对于全部数据，保证：$1 \le T \le 10$，$1 \le n \le 10^5$，$1 \le a_i \le 10^9$。</p>
-<h3 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h3><h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="type">long</span> <span class="type">long</span> ll;</span><br><span class="line"></span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N = <span class="number">100010</span>;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> n;</span><br><span class="line">ll a[N], l[N], r[N];</span><br><span class="line">ll pre[N], suf[N];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">solve</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>, &amp;n);</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i ++ ) <span class="built_in">scanf</span>(<span class="string">&quot;%lld&quot;</span>, a + i);</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i ++ ) l[i] = r[i] = a[i];</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i ++ )</span><br><span class="line">        <span class="keyword">if</span> (l[i] &lt;= l[i - <span class="number">1</span>]) pre[i] = pre[i - <span class="number">1</span>];</span><br><span class="line">        <span class="keyword">else</span> l[i] -= l[i - <span class="number">1</span>], pre[i] = pre[i - <span class="number">1</span>] + l[i];</span><br><span class="line">    l[n + <span class="number">1</span>] = r[n + <span class="number">1</span>] = pre[n + <span class="number">1</span>] = suf[n + <span class="number">1</span>] = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = n; i &gt;= <span class="number">1</span>; i -- )</span><br><span class="line">        <span class="keyword">if</span> (r[i] &lt;= r[i + <span class="number">1</span>]) suf[i] = suf[i + <span class="number">1</span>];</span><br><span class="line">        <span class="keyword">else</span> r[i] -= r[i + <span class="number">1</span>], suf[i] = suf[i + <span class="number">1</span>] + r[i];</span><br><span class="line">    </span><br><span class="line">    ll ans = <span class="number">0x3f3f3f3f3f3f3f3f</span>, t;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i ++ )&#123;</span><br><span class="line">        t = std::<span class="built_in">max</span>(<span class="number">0ll</span>, a[i] - l[i - <span class="number">1</span>] - r[i + <span class="number">1</span>]);</span><br><span class="line">        ans = std::<span class="built_in">min</span>(ans, pre[i - <span class="number">1</span>] + suf[i + <span class="number">1</span>] + t);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%lld\n&quot;</span>, ans);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="type">int</span> _;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>, &amp;_);</span><br><span class="line">    <span class="keyword">while</span> (_ -- ) <span class="built_in">solve</span>();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="Note"><a href="#Note" class="headerlink" title="Note"></a>Note</h3><p>&emsp;&emsp;Explanation for the first test case:</p>
+<p>&emsp;&emsp;The first query is described in the statement.</p>
+<p>&emsp;&emsp;In the second query, we should divide $[1,2,3]$. A possible division is $[1,2],[3]$, since $1\oplus 2&#x3D;3$.</p>
+<p>&emsp;&emsp;It can be shown that for queries $3,4,5$, the subarrays are not interesting.</p>
+<h3 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h3><p>&emsp;&emsp;回顾异或的一些技巧规律：区间的异或和可以采用前缀异或和解决，以及 $x\oplus x \oplus x &#x3D; x$；容易发现对于任意一种分割方案如果分割段数 $k &gt; 3 $，我们可以不断地对于相邻的任意三段进行合并，直到分割段数 $k \le 3$ 为止，即我们仅需关注分割段数是否能为 $2$ 或 $3$ 即可判断出答案。</p>
+<p>&emsp;&emsp;首先为了区间异或和先建立前缀异或和数组 $S_x&#x3D;a_1 \oplus a_2 \oplus … \oplus a_x$，讨论如下两种分割段数的合法情况：</p>
+<p>&emsp;&emsp;① $k &#x3D; 2$，即将询问区间 $[l,r]$ 分为两段，则必定存在一个区间断点 $p$ 使得区间 $[l, p],[p+1,r]$ 各自的区间异或和相等，即 $S_r \oplus S_p &#x3D; S_p \oplus S_{l - 1}$，即 $S_r &#x3D; S_{l-1}$。</p>
+<p>&emsp;&emsp;② $k &#x3D; 3$，即将询问区间 $[l,r]$ 分为三段，则必定存在两个间断点 $p_1,p_2$ 使得区间 $[l, p_2],[p_2+1,p_1],[p_1+1,r]$ 各自的区间异或和相等，即 $S_r \oplus S_{p_1} &#x3D; S_{p_1} \oplus S_{p_2}$ 且 $S_{p_1}\oplus S_{p_2} &#x3D; S_{p_1} \oplus S_{l-1}$，即 $S_{r} &#x3D; S_{p_1}$ 且 $S_{p_2} &#x3D; S_{l-1}$；因此我们可以将每个 $S_x$ 值所对应的下标存下来，二分查找 $S_{l-1}$ 中第一个 $&gt;l-1$ 的位置 $p_2$ 与 $S_r$ 中最后一个 $&lt;r$ 的位置 $p_1$，并检查 $p_1 &gt; p_2$ 即可。</p>
+<p>&emsp;&emsp;对于以上两种情况，若均不存在合法的断点，则显然这样的子段不是有趣的数组。</p>
+<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;map&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N = <span class="number">200010</span>;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> n, q;</span><br><span class="line"><span class="type">int</span> a[N];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">solve</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%d%d&quot;</span>, &amp;n, &amp;q);</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i ++ ) <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>, a + i);</span><br><span class="line"></span><br><span class="line">    map&lt;<span class="type">int</span>, vector&lt;<span class="type">int</span>&gt;&gt; p;</span><br><span class="line">    p[<span class="number">0</span>].<span class="built_in">push_back</span>(<span class="number">0</span>);</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i ++ )&#123;</span><br><span class="line">        a[i] ^= a[i - <span class="number">1</span>];</span><br><span class="line">        p[a[i]].<span class="built_in">push_back</span>(i);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> (q -- )&#123;</span><br><span class="line">        <span class="type">int</span> l, r;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">&quot;%d%d&quot;</span>, &amp;l, &amp;r);</span><br><span class="line">        <span class="keyword">if</span> (a[r] == a[l - <span class="number">1</span>])&#123;</span><br><span class="line">            <span class="built_in">puts</span>(<span class="string">&quot;YES&quot;</span>);</span><br><span class="line">            <span class="keyword">continue</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="type">int</span> p1 = *--<span class="built_in">lower_bound</span>(p[a[l - <span class="number">1</span>]].<span class="built_in">begin</span>(), p[a[l - <span class="number">1</span>]].<span class="built_in">end</span>(), r),</span><br><span class="line">            p2 = *<span class="built_in">lower_bound</span>(p[a[r]].<span class="built_in">begin</span>(), p[a[r]].<span class="built_in">end</span>(), l);</span><br><span class="line">        <span class="built_in">puts</span>(p1 &gt; p2 ? <span class="string">&quot;YES&quot;</span> : <span class="string">&quot;NO&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">puts</span>(<span class="string">&quot;&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="type">int</span> _;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>, &amp;_);</span><br><span class="line">    <span class="keyword">while</span> (_ -- ) <span class="built_in">solve</span>();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </div>
 
 <!-- post-guide -->
@@ -551,16 +524,11 @@
     <div class="post-guide">
         <div class="item left">
             
-              <a href="/2026/04/11/01%20%E7%BC%96%E7%A8%8B/05%20%E8%A7%A3%E9%A2%98%E6%8A%A5%E5%91%8A/P8649/">
-                  <i class="fa fa-angle-left" aria-hidden="true"></i>
-                  P8649
-              </a>
-            
         </div>
         <div class="item right">
             
-              <a href="/2026/04/11/01%20%E7%BC%96%E7%A8%8B/05%20%E8%A7%A3%E9%A2%98%E6%8A%A5%E5%91%8A/CF1915E/">
-                CF1915E
+              <a href="/2026/04/12/01%20%E7%BC%96%E7%A8%8B/05%20%E8%A7%A3%E9%A2%98%E6%8A%A5%E5%91%8A/CF1968G1/">
+                CF1968G1
                 <i class="fa fa-angle-right" aria-hidden="true"></i>
               </a>
             
