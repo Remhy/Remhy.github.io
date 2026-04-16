@@ -9,7 +9,7 @@
 	
 	<title>
 	
-		前缀和&amp;差分 | 
+		2023牛客暑期多校训练营9D | 
 	 
 	Note_Blog
 	</title>
@@ -195,7 +195,7 @@
 									</a>
 									
 							<ul>
-								<li class="file active">
+								<li class="file">
 									<a href="/2026/04/09/01%20%E7%BC%96%E7%A8%8B/04%20%E7%AE%97%E6%B3%95&%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E5%89%8D%E7%BC%80%E5%92%8C&%E5%B7%AE%E5%88%86/">
                      
 										    前缀和&差分
@@ -228,7 +228,7 @@
 							</ul>
 			
 							<ul>
-								<li class="file">
+								<li class="file active">
 									<a href="/2026/04/16/01%20%E7%BC%96%E7%A8%8B/05%20%E8%A7%A3%E9%A2%98%E6%8A%A5%E5%91%8A/2023%E7%89%9B%E5%AE%A2%E6%9A%91%E6%9C%9F%E5%A4%9A%E6%A0%A1%E8%AE%AD%E7%BB%83%E8%90%A59D/">
                      
 										    2023牛客暑期多校训练营9D
@@ -429,7 +429,7 @@
 	<!-- 引入正文 -->
 	<div id="content" class="content">
 		<h1 id="article-title">
-	前缀和&差分
+	2023牛客暑期多校训练营9D
 </h1>
 
 <!-- meta -->
@@ -437,7 +437,7 @@
 	
 
 	<span>Remh</span>
-	<span>2026-04-09 00:00:00</span>
+	<span>2026-04-16 00:00:00</span>
 
   <div id="article-categories">
     
@@ -446,7 +446,7 @@
           
               <span>
                   <i class="fa fa-folder" aria-hidden="true">
-                  <a href="/categories/编程/">编程</a>
+                  <a href="/categories/ACM解题报告/">ACM解题报告</a>
                   </i>
                 
                   >
@@ -457,7 +457,18 @@
           
               <span>
                   <i class="fa fa-folder" aria-hidden="true">
-                  <a href="/categories/编程/算法-数据结构/">算法&数据结构</a>
+                  <a href="/categories/ACM解题报告/算法-数据结构/">算法&数据结构</a>
+                  </i>
+                
+                  >
+                
+              </span>
+          
+      
+          
+              <span>
+                  <i class="fa fa-folder" aria-hidden="true">
+                  <a href="/categories/ACM解题报告/算法-数据结构/牛客多校/">牛客多校</a>
                   </i>
                 
               </span>
@@ -467,14 +478,6 @@
 
     
 		    <span>Tags：</span>
-        
-            
-                <span>
-                    <i class="fa fa-tag" aria-hidden="true">
-                    <a href="/tags/前缀和/">前缀和</a>
-                    </i>
-                </span>
-            
         
             
                 <span>
@@ -491,20 +494,21 @@
 
 <!-- content -->
 <div id="article-content">
-	<h3 id="前缀和"><a href="#前缀和" class="headerlink" title="前缀和"></a>前缀和</h3><p>&emsp;&emsp;分析这样一个案例，给出一个下标从 $1$ 开始的随机数组 :<br>$$a &#x3D; [5, -3, 8, 3, 4, -7],$$<br>需要求出数组中下标区间 $[l,r]$ 的和，我们很容易想到可以使用循环解决，即：</p>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="type">int</span> sum = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">for</span> (<span class="type">int</span> i = l; i &lt;= r; i ++ ) sum += a[i];</span><br></pre></td></tr></table></figure>
+	<h2 id="Non-Puzzle-Error-Permutation"><a href="#Non-Puzzle-Error-Permutation" class="headerlink" title="Non-Puzzle:Error Permutation"></a>Non-Puzzle:Error Permutation</h2><h3 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h3><p>&emsp;&emsp;You are given a permutation $P$ of length $n$. Find the number of its subsegments $[l\dots r]$($l \le r$) that satisfies the following condition:  </p>
+<ul>
+<li>$\forall 1\le i \le r-l+1$ , the $i$-th element of this subsegment (that is, $P_{l+i-1}$) is <strong>not</strong> the $i$-th smallest element in this subsegment.</li>
+</ul>
+<h3 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h3><p>&emsp;&emsp;There are multiple test cases.  </p>
+<p>&emsp;&emsp;The first line contains one integer $T$ ($1\le T \le 1000$), representing the number of test cases.  </p>
+<p>&emsp;&emsp;For each test case, the first line contains a single integer $n$ ($1\le n \le 5000$), representing the length of the permutation.  </p>
+<p>&emsp;&emsp;The following line contains $n$ integers $p_{1},p_{2} \dots p_{n}$, representing the permutation.  </p>
+<p>&emsp;&emsp;It is guaranteed that the sum of $n$ does not exceed $5000$.</p>
+<h3 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h3><p>&emsp;&emsp;For each test case, output a line containing a single integer representing the answer.</p>
+<h3 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h3><h4 id="Input-1"><a href="#Input-1" class="headerlink" title="Input"></a>Input</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">4</span><br><span class="line">5</span><br><span class="line">2 4 1 5 3</span><br><span class="line">5</span><br><span class="line">1 4 5 3 2</span><br><span class="line">2</span><br><span class="line">2 1</span><br><span class="line">6</span><br><span class="line">2 5 4 3 6 1</span><br></pre></td></tr></table></figure>
 
-<p>&emsp;&emsp;这样我们可以很容易的将区间和统计在 $sum$ 中，并且求和时间与区间长度正相关。</p>
-<p>&emsp;&emsp;继续增加情境，我们需要在 $1s$ 内解决所有问题，数组长度变为了 $n$，并且假设 $n$ 的数量级为 $10^5$，对于原问题我们仍能使用 $C++$ 在 $1s$ 的时间内求出一次区间和的查询，因为最坏的情况也只能是查询区间为 $[1,n]$，显然此时也只会遍历一次 $a$ 数组；</p>
-<p>&emsp;&emsp;但是如果我们的询问不止一次，而是 $m$ 次呢？并且 $m$ 与 $n$ 数量级相同，显然最坏的语句执行次数为 $n \times m$ 超出了 $1s$ 的限制；于是我们继续分析问题，不难发现，我们在进行 $for$ 循环时遍历的下标有较多重复，也就是说我们统计的信息大多是重复的，所以我们的关注点变为能不能一次统计完所有信息来规避每次重复的统计，理论是可行的。</p>
-<p>&emsp;&emsp;引入一个新数组 $S$，$S$ 数组下标从 $0$ 开始，并且 $S_0 &#x3D; 0$，$S_x &#x3D; \sum\limits_{i&#x3D;1}^x a_i$；即前缀和数组，对于区间 $[l,r]$ 的求和问题我们不难发现<br>$$<br>\begin{aligned}<br>S_r &amp;&#x3D; a_1+a_2+…+a_{l-1}+a_l+…+a_r \newline<br>&amp;&#x3D;S_{l-1}+a_l+…+a_r \newline<br>&amp;&#x3D;S_{l-1}+sum[l,r]<br>\end{aligned}<br>$$<br>移项得到<br>$$<br>sum[l,r] &#x3D; S_r-S_{l-1}<br>$$<br>&emsp;&emsp;因此我们只要获得 $S$ 数组，便可通过一次减法运算得到区间求和的结果，时间复杂度从 $O(n)$ 降低为了 $O(1)$，问题解决。<br>关于如何求 $S$ 数组，可以发现 $S_x &#x3D; S_{x-1}+a_x$，因此线性递推即可，代码如下：</p>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line">S[<span class="number">0</span>] = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i ++ ) S[i] = S[i - <span class="number">1</span>] + a[i];</span><br></pre></td></tr></table></figure>
+<h4 id="Output-1"><a href="#Output-1" class="headerlink" title="Output"></a>Output</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">5</span><br><span class="line">4</span><br><span class="line">1</span><br><span class="line">6</span><br></pre></td></tr></table></figure>
 
-<h3 id="前缀信息"><a href="#前缀信息" class="headerlink" title="前缀信息"></a>前缀信息</h3><p>&emsp;&emsp;了解了前缀和的思想之后，我们进一步思考前缀和的本质，不难想到，前缀和数组 $S$ 实质上是统计了 $1\sim x$ 的区间和，而在进行区间 $[l,r]$ 求和时，实质上是将 $1 \sim r$ 的区间和中将多余的 $1 \sim l-1$ 的区间和减去，即将不必要的前缀信息消除掉。</p>
-<p>&emsp;&emsp;进而思考，是不是只要能求出 $1 \sim x$ 的信息并集，并且能通过这个信息并集将多余部分消去，便可得到任意区间的信息并集。因此，区间异或和等操作也可以类比实现。</p>
-<p>&emsp;&emsp;发散思维，当然有前缀和，那么后缀和能不能做呢？当然能。并且前缀和仅仅表示前缀信息的并集，有时我们解决问题仅需要前缀信息的并集，解决问题时不要想太多。</p>
-<h3 id="区间和常见问题"><a href="#区间和常见问题" class="headerlink" title="区间和常见问题"></a>区间和常见问题</h3><p>&emsp;&emsp;前缀和将求区间和问题从循环转变为一次减法操作，同样的，区间和可以被前缀和数组中任意两数之差来表示，即前缀和数组可以抽象表示区间和，可用来解决寻找特殊区间并集的问题。</p>
-
+<h3 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h3><h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N = <span class="number">5010</span>;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> n, m;</span><br><span class="line"><span class="type">int</span> a[N], b[N][N];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="type">void</span> <span class="title">add</span><span class="params">(<span class="type">int</span> x1, <span class="type">int</span> y1, <span class="type">int</span> x2, <span class="type">int</span> y2)</span></span>&#123;</span><br><span class="line">    b[x1][y1]++, b[x2 + <span class="number">1</span>][y2 + <span class="number">1</span>]++;</span><br><span class="line">    b[x1][y2 + <span class="number">1</span>]--, b[x2 + <span class="number">1</span>][y1]--;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="type">void</span> <span class="title">solve</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>, &amp;n);</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i ++ ) <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>, a + i);</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i ++ )</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> j = <span class="number">1</span>; j &lt;= n; j ++ )</span><br><span class="line">            b[i][j] = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i ++ )&#123;</span><br><span class="line">        <span class="type">int</span> l = i, r = i, ll = i, rr = i;</span><br><span class="line">        <span class="keyword">while</span> (l &gt;= <span class="number">1</span> &amp;&amp; r &lt;= n)&#123;</span><br><span class="line">            <span class="keyword">while</span> (l - <span class="number">1</span> &gt; <span class="number">0</span> &amp;&amp; a[l - <span class="number">1</span>] &lt; a[i]) l--;</span><br><span class="line">            <span class="keyword">while</span> (r + <span class="number">1</span> &lt;= n &amp;&amp; a[r + <span class="number">1</span>] &gt;= a[i]) r ++ ;</span><br><span class="line">            <span class="built_in">add</span>(l, rr, ll, r);</span><br><span class="line">            l--, r++;</span><br><span class="line">            ll = l, rr = r;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i ++ )</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> j = <span class="number">1</span>; j &lt;= n; j ++ )</span><br><span class="line">            b[i][j] = b[i][j] + b[i - <span class="number">1</span>][j] + b[i][j - <span class="number">1</span>] - b[i - <span class="number">1</span>][j - <span class="number">1</span>];</span><br><span class="line">    </span><br><span class="line">    <span class="type">int</span> ans = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i ++ )</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> j = i + <span class="number">1</span>; j &lt;= n; j ++ )</span><br><span class="line">            ans += b[i][j] == <span class="number">0</span>;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>, ans);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="type">int</span> _;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>, &amp;_);</span><br><span class="line">    <span class="keyword">while</span> (_ -- ) <span class="built_in">solve</span>();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </div>
 
 <!-- post-guide -->
@@ -512,16 +516,11 @@
     <div class="post-guide">
         <div class="item left">
             
-              <a href="/2026/04/11/01%20%E7%BC%96%E7%A8%8B/05%20%E8%A7%A3%E9%A2%98%E6%8A%A5%E5%91%8A/P1438/">
-                  <i class="fa fa-angle-left" aria-hidden="true"></i>
-                  P1438
-              </a>
-            
         </div>
         <div class="item right">
             
-              <a href="/2026/04/09/03%20%E8%AE%A1%E7%AE%97%E6%9C%BA/%E5%AD%98%E5%82%A8%E5%99%A8/">
-                存储器
+              <a href="/2026/04/15/01%20%E7%BC%96%E7%A8%8B/05%20%E8%A7%A3%E9%A2%98%E6%8A%A5%E5%91%8A/CF1968F/">
+                CF1968F
                 <i class="fa fa-angle-right" aria-hidden="true"></i>
               </a>
             
