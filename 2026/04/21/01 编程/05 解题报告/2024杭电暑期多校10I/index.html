@@ -8,6 +8,8 @@
 	<!-- title -->
 	
 	<title>
+	
+		2024杭电暑期多校10I | 
 	 
 	Note_Blog
 	</title>
@@ -259,7 +261,7 @@
 							</ul>
 			
 							<ul>
-								<li class="file">
+								<li class="file active">
 									<a href="/2026/04/21/01%20%E7%BC%96%E7%A8%8B/05%20%E8%A7%A3%E9%A2%98%E6%8A%A5%E5%91%8A/2024%E6%9D%AD%E7%94%B5%E6%9A%91%E6%9C%9F%E5%A4%9A%E6%A0%A110I/">
                      
 										    2024杭电暑期多校10I
@@ -536,49 +538,117 @@
 
 	<!-- 引入正文 -->
 	<div id="content" class="content">
-		<div id="index">
+		<h1 id="article-title">
+	2024杭电暑期多校10I
+</h1>
+
+<!-- meta -->
+<div class="article-meta">
 	
-		<div class="index-li">
-			<a href="/2026/04/09/03%20%E8%AE%A1%E7%AE%97%E6%9C%BA/%E5%AD%98%E5%82%A8%E5%99%A8/">
-				<h2 class="index-title">
-					存储器
-				</h2>
-				<div class="index-brief">
-					存储器存储器分类1.按在计算机中的作用（层次）分类1）主存储器：主存，内存储器（内存）。容量较小、存取速度较快、价格较高。2）辅助存储器：辅存，外存储器（外存）。容量大、存取速度较慢、价格低。3）高速缓冲存储器：Cache。位于主存和CPU之间，存取速度可与CPU的速度相匹配，但存储容量小、价格高。
-					...
-				</div>
-			</a>
-                <div class="article-meta">
-				    <span>2026-04-09</span>
-                    
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/408/">408</a>
-										
-											>
-										
-                                    </span>
-                                
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/408/计算机/">计算机</a>
-										
-                                    </span>
-                                
-                            
-                    
-                </div>
-		</div>	
-	
-	
-	<div id="index-paginator">
-		
-	</div>
+
+	<span>Remh</span>
+	<span>2026-04-21 00:00:00</span>
+
+  <div id="article-categories">
+    
+		  <span>Categories：</span>
+      
+          
+              <span>
+                  <i class="fa fa-folder" aria-hidden="true">
+                  <a href="/categories/ACM解题报告/">ACM解题报告</a>
+                  </i>
+                
+                  >
+                
+              </span>
+          
+      
+          
+              <span>
+                  <i class="fa fa-folder" aria-hidden="true">
+                  <a href="/categories/ACM解题报告/算法-数据结构/">算法&数据结构</a>
+                  </i>
+                
+                  >
+                
+              </span>
+          
+      
+          
+              <span>
+                  <i class="fa fa-folder" aria-hidden="true">
+                  <a href="/categories/ACM解题报告/算法-数据结构/杭电多校/">杭电多校</a>
+                  </i>
+                
+              </span>
+          
+      
+    
+
+    
+		    <span>Tags：</span>
+        
+            
+                <span>
+                    <i class="fa fa-tag" aria-hidden="true">
+                    <a href="/tags/KMP/">KMP</a>
+                    </i>
+                </span>
+            
+        
+    
+  </div>
+
 </div>
+
+<!-- content -->
+<div id="article-content">
+	<h2 id="不基本子串结构"><a href="#不基本子串结构" class="headerlink" title="不基本子串结构"></a>不基本子串结构</h2><h3 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h3><p>&emsp;&emsp;给定两个由小写字母构成的字符串 $A$, $B$，你需要找到一个由小写字母构成的字符串 $C$，使得 $A$, $B$ 在 $C$ 中的出现次数相等且均不为 $0$，且 $C$ 的长度最小。</p>
+<p>&emsp;&emsp;输出 $C$ 的长度的最小值。如果不存在这样的 $C$，输出一行 $−1$。</p>
+<h3 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h3><p>&emsp;&emsp;本题有多组数据。第一行一个正整数 $T$ $（1\le T \le 10^5）$，表示测试数据组数。</p>
+<p>&emsp;&emsp;接下来 $T$ 行，每行两个字符串 $A$, $B$。</p>
+<p>&emsp;&emsp;数据保证 $\Sigma|A|,\Sigma|B|≤10^6$。</p>
+<h3 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h3><p>&emsp;&emsp;对每组数据，输出一行一个整数表示答案。</p>
+<h3 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h3><h4 id="Input-1"><a href="#Input-1" class="headerlink" title="Input"></a>Input</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">3</span><br><span class="line">ab ba</span><br><span class="line">a aaa</span><br><span class="line">ab aba</span><br></pre></td></tr></table></figure>
+
+<h4 id="Output-1"><a href="#Output-1" class="headerlink" title="Output"></a>Output</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">3</span><br><span class="line">-1</span><br><span class="line">3</span><br></pre></td></tr></table></figure>
+
+<h3 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h3><h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;algorithm&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N = <span class="number">2000010</span>;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> n, m;</span><br><span class="line"><span class="type">char</span> s[N], p[N], c[N];</span><br><span class="line"><span class="type">int</span> ne[N];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">get_next</span><span class="params">(<span class="type">char</span> p[], <span class="type">int</span> len)</span></span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt;= len;i ++ )</span><br><span class="line">        ne[i] = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">2</span>, j = <span class="number">0</span>; i &lt;= len; i ++ )&#123;</span><br><span class="line">	    <span class="keyword">while</span> (j &amp;&amp; p[i] != p[j + <span class="number">1</span>]) j = ne[j];</span><br><span class="line">        <span class="keyword">if</span> (p[i] == p[j + <span class="number">1</span>]) j ++ ;</span><br><span class="line">        ne[i] = j;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">count</span><span class="params">(<span class="type">char</span> s[], <span class="type">char</span> p[], <span class="type">int</span> len1, <span class="type">int</span> len2)</span></span>&#123;</span><br><span class="line">    <span class="type">int</span> res = <span class="number">0</span>;</span><br><span class="line">    <span class="built_in">get_next</span>(p, len2);</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>, j = <span class="number">0</span>; i &lt;= len1; i ++ )&#123;</span><br><span class="line">	    <span class="keyword">while</span> (j &amp;&amp; s[i] != p[j + <span class="number">1</span>]) j = ne[j];</span><br><span class="line">        <span class="keyword">if</span> (s[i] == p[j + <span class="number">1</span>]) j ++ ;</span><br><span class="line">        <span class="keyword">if</span> (j == len2)&#123;</span><br><span class="line">            res++;</span><br><span class="line">            <span class="keyword">if</span> (res &gt;= <span class="number">2</span>) <span class="keyword">return</span> <span class="number">2</span>;</span><br><span class="line">            j = ne[j];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">solve</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%s%s&quot;</span>, s + <span class="number">1</span>, p + <span class="number">1</span>);</span><br><span class="line">    n = <span class="built_in">strlen</span>(s + <span class="number">1</span>), m = <span class="built_in">strlen</span>(p + <span class="number">1</span>);</span><br><span class="line">    <span class="built_in">strcat</span>(c + <span class="number">1</span>, s + <span class="number">1</span>);</span><br><span class="line">    <span class="type">int</span> t;</span><br><span class="line">    <span class="keyword">if</span> (n &gt; m) t = <span class="built_in">count</span>(s, p, n, m);</span><br><span class="line">    <span class="keyword">else</span> t = <span class="built_in">count</span>(p, s, m, n);</span><br><span class="line">    <span class="keyword">if</span> (t == <span class="number">1</span>) <span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>, <span class="built_in">max</span>(n, m));</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span> (t &gt;= <span class="number">2</span>) <span class="built_in">puts</span>(<span class="string">&quot;-1&quot;</span>);</span><br><span class="line">    <span class="keyword">else</span>&#123;</span><br><span class="line">        <span class="type">int</span> ans, maxx = <span class="built_in">min</span>(n, m), l;</span><br><span class="line">        <span class="built_in">strcat</span>(s + <span class="number">1</span>, p + <span class="number">1</span>);</span><br><span class="line">        <span class="built_in">get_next</span>(s, n + m);</span><br><span class="line">        l = ne[n + m];</span><br><span class="line">        <span class="keyword">while</span> (l &gt;= maxx) l = ne[l];</span><br><span class="line">        ans = n + m - l;</span><br><span class="line"></span><br><span class="line">        <span class="built_in">strcat</span>(p + <span class="number">1</span>, c + <span class="number">1</span>);</span><br><span class="line">        <span class="built_in">get_next</span>(p, n + m);</span><br><span class="line">        l = ne[n + m];</span><br><span class="line">        <span class="keyword">while</span> (l &gt;= maxx) l = ne[l];</span><br><span class="line">        ans = <span class="built_in">min</span>(ans, n + m - l);</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>, ans);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">memset</span>(s, <span class="number">0</span>, n + m + <span class="number">1</span>), <span class="built_in">memset</span>(p, <span class="number">0</span>, n + m + <span class="number">1</span>), <span class="built_in">memset</span>(c, <span class="number">0</span>, n + <span class="number">1</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="type">int</span> _;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>, &amp;_);</span><br><span class="line">    <span class="keyword">while</span> (_ -- ) <span class="built_in">solve</span>();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</div>
+
+<!-- post-guide -->
+
+    <div class="post-guide">
+        <div class="item left">
+            
+              <a href="/2026/04/21/01%20%E7%BC%96%E7%A8%8B/05%20%E8%A7%A3%E9%A2%98%E6%8A%A5%E5%91%8A/2024%E6%9D%AD%E7%94%B5%E6%9A%91%E6%9C%9F%E5%A4%9A%E6%A0%A11L/">
+                  <i class="fa fa-angle-left" aria-hidden="true"></i>
+                  2024杭电暑期多校1L
+              </a>
+            
+        </div>
+        <div class="item right">
+            
+              <a href="/2026/04/18/04%20%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/RNN%E5%BE%AA%E7%8E%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/">
+                RNN循环神经网络
+                <i class="fa fa-angle-right" aria-hidden="true"></i>
+              </a>
+            
+        </div>
+    </div>
+
+
+<!-- comment - giscus -->
+
+
+<!-- comment - valine -->
+
+
+<script>
+	
+	
+</script>
 
 	</div>
 	<div id="footer">

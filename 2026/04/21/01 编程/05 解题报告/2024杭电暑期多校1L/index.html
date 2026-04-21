@@ -8,6 +8,8 @@
 	<!-- title -->
 	
 	<title>
+	
+		2024杭电暑期多校1L | 
 	 
 	Note_Blog
 	</title>
@@ -270,7 +272,7 @@
 							</ul>
 			
 							<ul>
-								<li class="file">
+								<li class="file active">
 									<a href="/2026/04/21/01%20%E7%BC%96%E7%A8%8B/05%20%E8%A7%A3%E9%A2%98%E6%8A%A5%E5%91%8A/2024%E6%9D%AD%E7%94%B5%E6%9A%91%E6%9C%9F%E5%A4%9A%E6%A0%A11L/">
                      
 										    2024杭电暑期多校1L
@@ -536,49 +538,124 @@
 
 	<!-- 引入正文 -->
 	<div id="content" class="content">
-		<div id="index">
+		<h1 id="article-title">
+	2024杭电暑期多校1L
+</h1>
+
+<!-- meta -->
+<div class="article-meta">
 	
-		<div class="index-li">
-			<a href="/2026/04/09/03%20%E8%AE%A1%E7%AE%97%E6%9C%BA/%E5%AD%98%E5%82%A8%E5%99%A8/">
-				<h2 class="index-title">
-					存储器
-				</h2>
-				<div class="index-brief">
-					存储器存储器分类1.按在计算机中的作用（层次）分类1）主存储器：主存，内存储器（内存）。容量较小、存取速度较快、价格较高。2）辅助存储器：辅存，外存储器（外存）。容量大、存取速度较慢、价格低。3）高速缓冲存储器：Cache。位于主存和CPU之间，存取速度可与CPU的速度相匹配，但存储容量小、价格高。
-					...
-				</div>
-			</a>
-                <div class="article-meta">
-				    <span>2026-04-09</span>
-                    
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/408/">408</a>
-										
-											>
-										
-                                    </span>
-                                
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/408/计算机/">计算机</a>
-										
-                                    </span>
-                                
-                            
-                    
-                </div>
-		</div>	
-	
-	
-	<div id="index-paginator">
-		
-	</div>
+
+	<span>Remh</span>
+	<span>2026-04-21 00:00:00</span>
+
+  <div id="article-categories">
+    
+		  <span>Categories：</span>
+      
+          
+              <span>
+                  <i class="fa fa-folder" aria-hidden="true">
+                  <a href="/categories/ACM解题报告/">ACM解题报告</a>
+                  </i>
+                
+                  >
+                
+              </span>
+          
+      
+          
+              <span>
+                  <i class="fa fa-folder" aria-hidden="true">
+                  <a href="/categories/ACM解题报告/算法-数据结构/">算法&数据结构</a>
+                  </i>
+                
+                  >
+                
+              </span>
+          
+      
+          
+              <span>
+                  <i class="fa fa-folder" aria-hidden="true">
+                  <a href="/categories/ACM解题报告/算法-数据结构/杭电多校/">杭电多校</a>
+                  </i>
+                
+              </span>
+          
+      
+    
+
+    
+		    <span>Tags：</span>
+        
+            
+                <span>
+                    <i class="fa fa-tag" aria-hidden="true">
+                    <a href="/tags/二维前缀和/">二维前缀和</a>
+                    </i>
+                </span>
+            
+        
+            
+                <span>
+                    <i class="fa fa-tag" aria-hidden="true">
+                    <a href="/tags/期望/">期望</a>
+                    </i>
+                </span>
+            
+        
+    
+  </div>
+
 </div>
+
+<!-- content -->
+<div id="article-content">
+	<h2 id="并"><a href="#并" class="headerlink" title="并"></a>并</h2><h3 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h3><p>&emsp;&emsp;平面直角坐标系上有 $n$ 个矩形，其中第 $i$ 个的左上角坐标为 $(x_{i,1},y_{i,1})$，右下角坐标为 $(x_{i,2},y_{i,2})$。</p>
+<p>&emsp;&emsp;对于 $k\in[1,n]$，求解在 $n$ 个矩形中随机选取 $k$ 个不同的矩形，其所有覆盖部分的并集的面积的期望值，答案对 $998244353$ 取模。</p>
+<h3 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h3><p>&emsp;&emsp;第一行包含 $1$ 个正整数 $n$ $(1\le n\le 2\times 10^3)$。</p>
+<p>&emsp;&emsp;之后 $n$ 行，每行给定四个参数 $x_{i,1}$, $y_{i,1}$, $x_{i,2}$, $y_{i,2}$，保证有 $1\le x_{i,1}&lt;x_{i,2}\le 10^9,1\le y_{i,1}&lt;y_{i,2}\le 10^9$。</p>
+<h3 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h3><p>&emsp;&emsp;输出共 $n$ 行，第 $i$ 行输出 $1$ 个整数，表示 $k&#x3D;i$ 时的答案。</p>
+<h3 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h3><h4 id="Input-1"><a href="#Input-1" class="headerlink" title="Input"></a>Input</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">3</span><br><span class="line">1 1 2 2</span><br><span class="line">3 3 4 4</span><br><span class="line">1 1 4 4</span><br></pre></td></tr></table></figure>
+
+<h4 id="Output-1"><a href="#Output-1" class="headerlink" title="Output"></a>Output</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">665496239</span><br><span class="line">665496242</span><br><span class="line">9</span><br></pre></td></tr></table></figure>
+
+<h3 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h3><h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;cstring&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="type">long</span> <span class="type">long</span> ll;</span><br><span class="line"></span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N = <span class="number">2010</span>, M = <span class="number">4010</span>;</span><br><span class="line"><span class="type">const</span> ll mod = <span class="number">998244353</span>;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> n;</span><br><span class="line"><span class="type">int</span> x[M], y[M];</span><br><span class="line"><span class="type">int</span> a[M][M];</span><br><span class="line">ll c[N][N], s[N];</span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">Rec</span>&#123;</span><br><span class="line">    <span class="type">int</span> x1, y1, x2, y2;</span><br><span class="line">&#125; rec[N];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">init</span><span class="params">(<span class="type">int</span> n)</span></span>&#123;</span><br><span class="line">    c[<span class="number">0</span>][<span class="number">0</span>] = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i ++ )&#123;</span><br><span class="line">        c[i][<span class="number">0</span>] = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> j = <span class="number">1</span>; j &lt;= i; j ++ )&#123;</span><br><span class="line">            c[i][j] = c[i - <span class="number">1</span>][j] + c[i - <span class="number">1</span>][j - <span class="number">1</span>];</span><br><span class="line">            <span class="keyword">if</span> (c[i][j] &gt;= mod) c[i][j] -= mod;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function">ll <span class="title">qpow</span><span class="params">(ll a, ll x, ll P = mod)</span> </span>&#123;</span><br><span class="line">    ll res = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span> (x) &#123;</span><br><span class="line">        <span class="keyword">if</span> (x &amp; <span class="number">1</span>) res = (ll)res * a % P;</span><br><span class="line">        a = (ll)((ll)a * a) % P;</span><br><span class="line">        x = x &gt;&gt; <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>, &amp;n);</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i ++ )&#123;</span><br><span class="line">        <span class="type">int</span> x1, y1, x2, y2;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">&quot;%d%d%d%d&quot;</span>, &amp;x1, &amp;y1, &amp;x2, &amp;y2);</span><br><span class="line">        x[i * <span class="number">2</span> - <span class="number">1</span>] = x1, x[i * <span class="number">2</span>] = x2;</span><br><span class="line">        y[i * <span class="number">2</span> - <span class="number">1</span>] = y1, y[i * <span class="number">2</span>] = y2;</span><br><span class="line">        rec[i] = &#123;x1, y1, x2, y2&#125;;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">init</span>(n);</span><br><span class="line">    <span class="built_in">sort</span>(x + <span class="number">1</span>, x + n * <span class="number">2</span> + <span class="number">1</span>), <span class="built_in">sort</span>(y + <span class="number">1</span>, y + n * <span class="number">2</span> + <span class="number">1</span>);</span><br><span class="line">    <span class="type">int</span> r = <span class="built_in">unique</span>(x + <span class="number">1</span>, x + n * <span class="number">2</span> + <span class="number">1</span>) - x - <span class="number">1</span>, l = <span class="built_in">unique</span>(y + <span class="number">1</span>, y + n * <span class="number">2</span> + <span class="number">1</span>) - y - <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i ++ )&#123;</span><br><span class="line">        <span class="keyword">auto</span> [x1, y1, x2, y2] = rec[i];</span><br><span class="line">        x1 = <span class="built_in">lower_bound</span>(x + <span class="number">1</span>, x + r + <span class="number">1</span>, x1) - x;</span><br><span class="line">        y1 = <span class="built_in">lower_bound</span>(y + <span class="number">1</span>, y + l + <span class="number">1</span>, y1) - y;</span><br><span class="line">        x2 = <span class="built_in">lower_bound</span>(x + <span class="number">1</span>, x + r + <span class="number">1</span>, x2) - x;</span><br><span class="line">        y2 = <span class="built_in">lower_bound</span>(y + <span class="number">1</span>, y + l + <span class="number">1</span>, y2) - y;</span><br><span class="line">        a[x1][y1]++, a[x2][y2]++;</span><br><span class="line">        a[x1][y2]--, a[x2][y1]--;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt; r; i ++ )</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> j = <span class="number">1</span>; j &lt; l; j ++ )&#123;</span><br><span class="line">            a[i][j] += a[i - <span class="number">1</span>][j] + a[i][j - <span class="number">1</span>] - a[i - <span class="number">1</span>][j - <span class="number">1</span>];</span><br><span class="line">            s[a[i][j]] = (s[a[i][j]] + (ll) (x[i + <span class="number">1</span>] - x[i]) * (y[j + <span class="number">1</span>] - y[j])) % mod;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> k = <span class="number">1</span>; k &lt;= n; k ++ ) &#123;</span><br><span class="line">        ll ans = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i ++ )</span><br><span class="line">            ans = (ans + s[i] * (c[n][k] - c[n - i][k] + mod)) % mod;</span><br><span class="line">        ans = ans * <span class="built_in">qpow</span>(c[n][k], mod - <span class="number">2</span>) % mod;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;%lld\n&quot;</span>, ans);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</div>
+
+<!-- post-guide -->
+
+    <div class="post-guide">
+        <div class="item left">
+            
+              <a href="/2026/04/21/01%20%E7%BC%96%E7%A8%8B/05%20%E8%A7%A3%E9%A2%98%E6%8A%A5%E5%91%8A/CF786B/">
+                  <i class="fa fa-angle-left" aria-hidden="true"></i>
+                  CF786B
+              </a>
+            
+        </div>
+        <div class="item right">
+            
+              <a href="/2026/04/21/01%20%E7%BC%96%E7%A8%8B/05%20%E8%A7%A3%E9%A2%98%E6%8A%A5%E5%91%8A/2024%E6%9D%AD%E7%94%B5%E6%9A%91%E6%9C%9F%E5%A4%9A%E6%A0%A110I/">
+                2024杭电暑期多校10I
+                <i class="fa fa-angle-right" aria-hidden="true"></i>
+              </a>
+            
+        </div>
+    </div>
+
+
+<!-- comment - giscus -->
+
+
+<!-- comment - valine -->
+
+
+<script>
+	
+	
+</script>
 
 	</div>
 	<div id="footer">
