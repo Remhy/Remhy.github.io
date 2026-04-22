@@ -8,6 +8,8 @@
 	<!-- title -->
 	
 	<title>
+	
+		2024ICPC网络赛1G | 
 	 
 	Note_Blog
 	</title>
@@ -259,7 +261,7 @@
 							</ul>
 			
 							<ul>
-								<li class="file">
+								<li class="file active">
 									<a href="/2026/04/22/01%20%E7%BC%96%E7%A8%8B/05%20%E8%A7%A3%E9%A2%98%E6%8A%A5%E5%91%8A/2024ICPC%E7%BD%91%E7%BB%9C%E8%B5%9B1G/">
                      
 										    2024ICPC网络赛1G
@@ -547,60 +549,125 @@
 
 	<!-- 引入正文 -->
 	<div id="content" class="content">
-		<div id="index">
+		<h1 id="article-title">
+	2024ICPC网络赛1G
+</h1>
+
+<!-- meta -->
+<div class="article-meta">
 	
-		<div class="index-li">
-			<a href="/2026/04/21/01%20%E7%BC%96%E7%A8%8B/05%20%E8%A7%A3%E9%A2%98%E6%8A%A5%E5%91%8A/CF1899G/">
-				<h2 class="index-title">
-					CF1899G
-				</h2>
-				<div class="index-brief">
-					Unusual EntertainmentDescription&emsp;&emsp;A tree is a connected graph without cycles.
-&emsp;&emsp;A permutation is an array consisting of $n$ distin
-					...
-				</div>
-			</a>
-                <div class="article-meta">
-				    <span>2026-04-21</span>
-                    
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/ACM解题报告/">ACM解题报告</a>
-										
-											>
-										
-                                    </span>
-                                
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/ACM解题报告/算法-数据结构/">算法&数据结构</a>
-										
-											>
-										
-                                    </span>
-                                
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/ACM解题报告/算法-数据结构/Codeforces/">Codeforces</a>
-										
-                                    </span>
-                                
-                            
-                    
-                </div>
-		</div>	
-	
-	
-	<div id="index-paginator">
-		
-	</div>
+
+	<span>Remh</span>
+	<span>2026-04-22 00:00:00</span>
+
+  <div id="article-categories">
+    
+		  <span>Categories：</span>
+      
+          
+              <span>
+                  <i class="fa fa-folder" aria-hidden="true">
+                  <a href="/categories/ACM解题报告/">ACM解题报告</a>
+                  </i>
+                
+                  >
+                
+              </span>
+          
+      
+          
+              <span>
+                  <i class="fa fa-folder" aria-hidden="true">
+                  <a href="/categories/ACM解题报告/算法-数据结构/">算法&数据结构</a>
+                  </i>
+                
+                  >
+                
+              </span>
+          
+      
+          
+              <span>
+                  <i class="fa fa-folder" aria-hidden="true">
+                  <a href="/categories/ACM解题报告/算法-数据结构/ICPC/">ICPC</a>
+                  </i>
+                
+              </span>
+          
+      
+    
+
+    
+		    <span>Tags：</span>
+        
+            
+                <span>
+                    <i class="fa fa-tag" aria-hidden="true">
+                    <a href="/tags/二分/">二分</a>
+                    </i>
+                </span>
+            
+        
+            
+                <span>
+                    <i class="fa fa-tag" aria-hidden="true">
+                    <a href="/tags/中位数/">中位数</a>
+                    </i>
+                </span>
+            
+        
+    
+  </div>
+
 </div>
+
+<!-- content -->
+<div id="article-content">
+	<h2 id="the-Median-of-the-Median-of-the-Median"><a href="#the-Median-of-the-Median-of-the-Median" class="headerlink" title="the Median of the Median of the Median"></a>the Median of the Median of the Median</h2><h3 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h3><p>&emsp;&emsp;Today is YQH’s birthday, and she received a positive integer sequence of length $n$, denoted as ${a_i}^n_{i&#x3D;1}$, as a gift.</p>
+<p>&emsp;&emsp;YQH is very interested in medians, so she wants to find the median of the median of the median for this sequence. Specifically, let $b_{l,r}$ be the median of the multiset ${a_i}<em>{l\le i \le r}$ ,and let $c</em>{l,r}$ be the median of the multiset ${b_{i,j}}<em>{l\le i \le j \le r}$ .Then, what YQH wants to find is the median of the multiset ${c</em>{i,j}}_{1\le i \le j \le n}$ .However, she finds this task too difficult, so she asked you for help.</p>
+<p>&emsp;&emsp;Note: If you are not familiar with the concept of a median, the median of a multiset of size m is the $\lceil m &#x2F; 2 \rceil$ -th smallest element in it.</p>
+<h3 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h3><p>&emsp;&emsp;A single positive integer on the first line represents $n$ .</p>
+<p>&emsp;&emsp;The second line contains $n$ positive integers representing $a_1,…,a_n$ .</p>
+<p>&emsp;&emsp;It is guaranteed that $1 \le n \le 2000$ and $1 \le a_i \le 10^9$ .</p>
+<h3 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h3><p>&emsp;&emsp;Output a single line with one integer representing the answer.</p>
+<h3 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h3><h4 id="Input-1"><a href="#Input-1" class="headerlink" title="Input#1"></a>Input#1</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">4</span><br><span class="line">1 3 1 7</span><br></pre></td></tr></table></figure>
+
+<h4 id="Output-1"><a href="#Output-1" class="headerlink" title="Output#1"></a>Output#1</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">1</span><br></pre></td></tr></table></figure>
+
+<h4 id="Input-2"><a href="#Input-2" class="headerlink" title="Input#2"></a>Input#2</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">8</span><br><span class="line">3 3 8 4 5 3 8 5</span><br></pre></td></tr></table></figure>
+
+<h4 id="Output-2"><a href="#Output-2" class="headerlink" title="Output#2"></a>Output#2</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">4</span><br></pre></td></tr></table></figure>
+
+<h3 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h3><h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;cstring&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N = <span class="number">2010</span>;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> n;</span><br><span class="line"><span class="type">int</span> a[N], rnk[N], s[N];</span><br><span class="line"><span class="type">int</span> b[N][N], c[N][N];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">bool</span> <span class="title">check</span><span class="params">(<span class="type">int</span> x)</span></span>&#123;</span><br><span class="line">    <span class="type">int</span> cnt = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i ++ ) s[i] = s[i - <span class="number">1</span>] + (a[i] &gt; x);</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i ++ )</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> j = <span class="number">1</span>; j &lt;= n; j ++ )</span><br><span class="line">            b[i][j] = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i ++ )</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> j = i; j &lt;= n; j ++ )</span><br><span class="line">            b[i][j] = (j - i + <span class="number">1</span> - s[j] + s[i - <span class="number">1</span>]) &lt; (j - i + <span class="number">2</span> &gt;&gt; <span class="number">1</span>);</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i ++ )</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> j = <span class="number">1</span>; j &lt;= n; j ++ )</span><br><span class="line">            b[i][j] += b[i - <span class="number">1</span>][j] + b[i][j - <span class="number">1</span>] - b[i - <span class="number">1</span>][j - <span class="number">1</span>];</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i ++ )</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> j = i; j &lt;= n; j ++ )&#123;</span><br><span class="line">            <span class="type">int</span> siz = (j - i + <span class="number">2</span>) * (j - i + <span class="number">1</span>) / <span class="number">2</span>;</span><br><span class="line">            c[i][j] = (siz - (b[j][j] - b[i - <span class="number">1</span>][j] - b[j][i - <span class="number">1</span>] + b[i - <span class="number">1</span>][i - <span class="number">1</span>])) &lt; (siz + <span class="number">1</span> &gt;&gt; <span class="number">1</span>);</span><br><span class="line">            cnt += !c[i][j];</span><br><span class="line">        &#125;</span><br><span class="line">    <span class="keyword">return</span> cnt &gt;= (n * (n + <span class="number">1</span>) / <span class="number">2</span> + <span class="number">1</span>) / <span class="number">2</span>;</span><br><span class="line">&#125; </span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>, &amp;n);</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i ++ ) <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>, a + i);</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i ++ ) rnk[i] = a[i];</span><br><span class="line">    <span class="built_in">sort</span>(rnk + <span class="number">1</span>, rnk + <span class="number">1</span> + n);</span><br><span class="line">    <span class="type">int</span> l = <span class="number">1</span>, r = <span class="built_in">unique</span>(rnk + <span class="number">1</span>, rnk + <span class="number">1</span> + n) - rnk;</span><br><span class="line">    <span class="keyword">while</span> (l &lt; r)&#123;</span><br><span class="line">        <span class="type">int</span> mid = l + r &gt;&gt; <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">if</span> (<span class="built_in">check</span>(rnk[mid])) r = mid;</span><br><span class="line">        <span class="keyword">else</span> l = mid + <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%d&quot;</span>, rnk[l]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</div>
+
+<!-- post-guide -->
+
+    <div class="post-guide">
+        <div class="item left">
+            
+        </div>
+        <div class="item right">
+            
+              <a href="/2026/04/21/01%20%E7%BC%96%E7%A8%8B/05%20%E8%A7%A3%E9%A2%98%E6%8A%A5%E5%91%8A/2023ICPC%E6%B2%88%E9%98%B3%E7%AB%99E/">
+                2023ICPC沈阳站E
+                <i class="fa fa-angle-right" aria-hidden="true"></i>
+              </a>
+            
+        </div>
+    </div>
+
+
+<!-- comment - giscus -->
+
+
+<!-- comment - valine -->
+
+
+<script>
+	
+	
+</script>
 
 	</div>
 	<div id="footer">
