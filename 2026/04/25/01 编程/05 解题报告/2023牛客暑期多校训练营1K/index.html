@@ -239,6 +239,17 @@
 							</ul>
 			
 							<ul>
+								<li class="file">
+									<a href="/2026/04/26/01%20%E7%BC%96%E7%A8%8B/05%20%E8%A7%A3%E9%A2%98%E6%8A%A5%E5%91%8A/2023ICPC%E6%B5%8E%E5%8D%97%E7%AB%99K/">
+                     
+										    2023ICPC济南站K
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
 								<li class="file active">
 									<a href="/2026/04/25/01%20%E7%BC%96%E7%A8%8B/05%20%E8%A7%A3%E9%A2%98%E6%8A%A5%E5%91%8A/2023%E7%89%9B%E5%AE%A2%E6%9A%91%E6%9C%9F%E5%A4%9A%E6%A0%A1%E8%AE%AD%E7%BB%83%E8%90%A51K/">
                      
@@ -276,6 +287,17 @@
 									<a href="/2026/04/22/01%20%E7%BC%96%E7%A8%8B/05%20%E8%A7%A3%E9%A2%98%E6%8A%A5%E5%91%8A/2024ICPC%E7%BD%91%E7%BB%9C%E8%B5%9B1G/">
                      
 										    2024ICPC网络赛1G
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2026/04/26/01%20%E7%BC%96%E7%A8%8B/05%20%E8%A7%A3%E9%A2%98%E6%8A%A5%E5%91%8A/2024ICPC%E7%BD%91%E7%BB%9C%E8%B5%9B2L/">
+                     
+										    2024ICPC网络赛2L
                      
 									</a>
 								</li>
@@ -658,7 +680,7 @@
 <h4 id="Output-3"><a href="#Output-3" class="headerlink" title="Output#3"></a>Output#3</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">1</span><br></pre></td></tr></table></figure>
 
 <h3 id="Note"><a href="#Note" class="headerlink" title="Note"></a>Note</h3><p>&emsp;&emsp;Here is the illustration for the second example.</p>
-<p><img src="/2023%E7%89%9B%E5%AE%A2%E6%9A%91%E6%9C%9F%E5%A4%9A%E6%A0%A1%E8%AE%AD%E7%BB%83%E8%90%A51K1.png"></p>
+<p><img src="/pictures/2023%E7%89%9B%E5%AE%A2%E6%9A%91%E6%9C%9F%E5%A4%9A%E6%A0%A1%E8%AE%AD%E7%BB%83%E8%90%A51K1.png"></p>
 <h3 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h3><h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;random&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N = <span class="number">500010</span>, mod = <span class="number">1e9</span> + <span class="number">7</span>;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> n;</span><br><span class="line"><span class="type">int</span> a[N], b[<span class="number">3</span>];</span><br><span class="line"><span class="type">int</span> p[N];</span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">Edge</span>&#123;</span><br><span class="line">    <span class="type">int</span> x, f, id;</span><br><span class="line">&#125; edges[N &lt;&lt; <span class="number">2</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>, &amp;n);</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i ++ )&#123;</span><br><span class="line">        <span class="type">int</span> l1, r1, l2, r2;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">&quot;%d%d%d%d&quot;</span>, &amp;l1, &amp;r1, &amp;l2, &amp;r2);</span><br><span class="line">        edges[i * <span class="number">4</span> - <span class="number">3</span>] = &#123;l1, <span class="number">1</span>, i&#125;;</span><br><span class="line">        edges[i * <span class="number">4</span> - <span class="number">2</span>] = &#123;r1 + <span class="number">1</span>, <span class="number">-1</span>, i&#125;;</span><br><span class="line">        edges[i * <span class="number">4</span> - <span class="number">1</span>] = &#123;l2, <span class="number">1</span>, i&#125;;</span><br><span class="line">        edges[i * <span class="number">4</span>] = &#123;r2 + <span class="number">1</span>, <span class="number">-1</span>, i&#125;;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">sort</span>(edges + <span class="number">1</span>, edges + <span class="number">1</span> + n * <span class="number">4</span>, [](Edge &amp;x, Edge &amp;y)&#123;</span><br><span class="line">        <span class="keyword">if</span> (x.x == y.x) <span class="keyword">return</span> x.f &lt; y.f;</span><br><span class="line">        <span class="keyword">return</span> x.x &lt; y.x;</span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line">    p[<span class="number">0</span>] = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i ++ ) p[i] = p[i - <span class="number">1</span>] * <span class="number">2</span> % mod;</span><br><span class="line"></span><br><span class="line">    <span class="type">int</span> ans = <span class="number">0</span>;</span><br><span class="line">    b[<span class="number">0</span>] = n;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n * <span class="number">4</span>; i ++ )&#123;</span><br><span class="line">        b[a[edges[i].id]]--;</span><br><span class="line">        <span class="keyword">if</span> (edges[i].f == <span class="number">1</span> &amp;&amp; b[<span class="number">0</span>] == <span class="number">0</span>)</span><br><span class="line">            ans += p[b[<span class="number">2</span>]], ans %= mod;</span><br><span class="line">        a[edges[i].id] += edges[i].f;</span><br><span class="line">        b[a[edges[i].id]]++;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%d&quot;</span>, ans);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </div>
 
